@@ -1,0 +1,52 @@
+version: "3.7"
+
+services:
+  # development
+  dev:
+    env_file:
+      - ./images/.env
+      - .env
+      - .env.development
+    build:
+      context: .
+      dockerfile: ./Docker/Dockerfile
+      target: dev
+      args:
+        DOCKER_REPO: $DOCKER_REPO
+    image: $DOCKER_PROJ_NAME.dev
+    ports:
+      - 8888:8888
+    volumes:
+      - .:/code
+    container_name: $DOCKER_PROJ_NAME
+    privileged: true
+    stdin_open: true
+    tty: true
+  # build
+  build:
+    env_file:
+      - ./images/.env
+      - .env
+    build:
+      context: .
+      dockerfile: ./Docker/Dockerfile
+      target: build
+      args:
+        DOCKER_REPO: $DOCKER_REPO
+    image: $DOCKER_PROJ_NAME.build
+    volumes:
+       - .:/code
+    privileged: true
+    tty: true
+  # preview
+  service:
+    env_file:
+      - ./images/.env
+      - .env
+    build:
+      context: ./
+      dockerfile: ./Docker/Dockerfile
+      target: service
+      args:
+        DOCKER_REPO: $DOCKER_REPO
+    image: $DOCKER_REPO_PROJ
