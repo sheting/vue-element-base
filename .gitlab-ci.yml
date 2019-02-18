@@ -1,0 +1,68 @@
+stages:
+  - test
+  - build
+  - deploy
+  - notify
+
+before_script:
+  - which git
+  - git submodule sync --recursive
+  - git submodule update --init --recursive
+
+cache:
+  key: ${CI_COMMIT_REF_NAME}
+  paths:
+    - node_modules/
+
+# build
+build:
+  stage: build
+  script:
+    - PUSH_IMAGE=true
+      ./ci/build.sh
+  only:
+    - master
+    - schedules
+    - /^release.*$/
+    - tags
+    - CI
+  tags:
+    - FE
+  artifacts:
+    expire_in: 4 hour
+    paths:
+      - dist
+
+# deploy
+publish_preview:
+  stage: deploy
+  environment:
+    name: preview
+  script:
+    - APP_EXPOSE_PORT=$APP_EXPOSE_PORT
+      ./ci/up.sh
+  only:
+    - master
+    - schedules
+  tags:
+    - FE
+
+dingtalk:
+  stage: notify
+  script:
+    - __DINGTALK_URL=$VAR_NOTIFY_DINGTALK_URL
+      __PIPELINE_ID=$CI_PIPELINE_ID
+      __PROJECT=$CI_PROJECT_PATH
+      __BRANCH=$CI_COMMIT_REF_NAME
+      __USER=$GITLAB_USER_LOGIN
+      __COMMITMSG=$CI_COMMIT_TITLE
+      __PIPELINE_SRC=$CI_PIPELINE_SOURCE
+      __PIPELINE_URL=$CI_PIPELINE_URL
+      ./ci/notify.sh
+  when: on_failure
+  only:
+    - master
+    - tags
+    - schedules
+  tags:
+    - FE
