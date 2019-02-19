@@ -37,6 +37,10 @@ el-container.container
               router-link(tag="li", to="/components/card")
                 svg-icon(icon-class="card")
                 span Card
+            el-menu-item(index="/components/loading")
+              router-link(tag="li", to="/components/loading")
+                svg-icon(icon-class="load")
+                span Loading
     el-main
       router-view
 </template>

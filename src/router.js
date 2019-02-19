@@ -50,6 +50,16 @@ const routers = [
                 // requireAuth: true,
                 noCache: true
               }
+            },
+            {
+              path: 'loading',
+              component: () => import('@/views/loading'),
+              name: 'loading',
+              meta: {
+                title: 'loading',
+                // requireAuth: true,
+                noCache: true
+              }
             }
           ]
         }
