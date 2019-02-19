@@ -12,8 +12,8 @@ el-container.container
   el-container.sidebar
     el-aside(width="180px")
       el-menu(:default-active="active", :collapse="isCollapse")
-        el-menu-item(index="/demo/dashboard")
-          router-link(tag="li", to="/demo/dashboard")
+        el-menu-item(index="/dashboard")
+          router-link(tag="li", to="/dashboard")
             svg-icon(icon-class="dashboard")
             span Dashboard
         el-menu-item(index="/login")
