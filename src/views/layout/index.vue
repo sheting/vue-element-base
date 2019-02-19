@@ -10,7 +10,7 @@ el-container.container
         el-dropdown-item
           span(@click="logout") 退出登录
   el-container.sidebar
-    el-aside(width="180px")
+    el-aside(width="200px")
       el-menu(:default-active="active", :collapse="isCollapse")
         el-menu-item(index="/dashboard")
           router-link(tag="li", to="/dashboard")
