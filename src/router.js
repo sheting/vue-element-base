@@ -1,24 +1,57 @@
 const routers = [
     {
       path: '/',
-      name: 'dashboard',
+      name: 'demo',
       meta: {
         title: '首页',
         scrollToTop: true,
         // requireAuth: true
       },
       component: () => import('@/views/layout'),
-      redirect: '/index',
+      redirect: '/dashboard',
       children: [
         {
-          path: 'index',
+          path: 'dashboard',
           component: () => import('@/views/dashboard'),
-          name: 'index',
+          name: 'dashboard',
           meta: {
             title: '概览业',
             // requireAuth: true,
             noCache: true
           }
+        },
+        {
+          path: 'components',
+          component: () => import('@/views/base-layout'),
+          name: 'components',
+          redirect: '/components/table',
+          meta: {
+            title: '概览业',
+            // requireAuth: true,
+            noCache: true
+          },
+          children: [
+            {
+              path: 'table',
+              component: () => import('@/views/table'),
+              name: 'table',
+              meta: {
+                title: 'tables',
+                // requireAuth: true,
+                noCache: true
+              }
+            },
+            {
+              path: 'card',
+              component: () => import('@/views/card'),
+              name: 'card',
+              meta: {
+                title: 'cards',
+                // requireAuth: true,
+                noCache: true
+              }
+            }
+          ]
         }
       ]
     },
@@ -28,6 +61,13 @@ const routers = [
       name: 'login',
       component: () => import('@/views/login'),
       meta: {title: `登录`}
+    },
+    {
+      path: '/404',
+      alias: '/not-found',
+      name: '404',
+      component: () => import('@/views/404'),
+      meta: {title: `Error - 404`}
     }
   ]
   

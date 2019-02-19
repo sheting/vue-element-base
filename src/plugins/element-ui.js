@@ -11,7 +11,9 @@ import {
     Input,
     Button,
     Menu,
+    Submenu,
     MenuItem,
+    MenuItemGroup,
     Table,
     TableColumn,
     Form,
@@ -45,7 +47,9 @@ import {
       Vue.use(Input)
       Vue.use(Button)
       Vue.use(Menu)
+      Vue.use(Submenu)
       Vue.use(MenuItem)
+      Vue.use(MenuItemGroup)
       Vue.use(Table)
       Vue.use(TableColumn)
       Vue.use(Form)

@@ -15,7 +15,7 @@ const router = new VueRouter({
   scrollBehavior,
   routes: Routers
 })
-// const whiteList = ['/login', '/search'] // no redirect whitelist
+// const whiteList = ['/login'] // no redirect whitelist
 
 router.beforeEach((to, from, next) => {
   Util.title(to.meta.title)
