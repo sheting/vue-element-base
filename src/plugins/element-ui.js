@@ -24,6 +24,7 @@ import {
     Option,
     Pagination,
     Tooltip,
+    Tag,
     Icon,
     Row,
     Col,
@@ -60,6 +61,7 @@ import {
       Vue.use(Option)
       Vue.use(Pagination)
       Vue.use(Tooltip)
+      Vue.use(Tag)
       Vue.use(Icon)
       Vue.use(Row)
       Vue.use(Col)
