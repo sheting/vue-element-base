@@ -1,32 +1,39 @@
 <template lang="pug">
   el-card
     el-button(@click="dialogVisible = true") 点击打开dialog
+    el-dialog(
+      :visible.sync="dialogVisible"
+      width="40%"
+      append-to-body)
+      div(slot="title")
+        span {{title}}
+      div.scroll-content
+        p 这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动这是一段文字描述用来测试内容超出滚动
+      span.dialog-footer(slot="footer")
+        el-button(type="primary" @click="dialogVisible = false") 确定 
+        el-button(type="info" plain @click="dialogVisible = false") 取消 
 </template>
 
 <script>
 export default {
-  name: "dialog",
+  name: "dialogs",
   data() {
     return {
-      dialogVisible: false
+      dialogVisible: false,
+      title: "审核申请"
     };
   },
-  methods: {
-    // openFullScreen() {
-    //   this.loading1 = true;
-    //   setTimeout(() => {
-    //     this.loading1 = false;
-    //   }, 2000);
-    // },
-    // openLoading() {
-    //   this.loading2 = true;
-    //   setTimeout(() => {
-    //     this.loading2 = false;
-    //     this.nums = [0, 1, 2, 3, 4, 5];
-    //   }, 2000);
-    // }
-  }
+  methods: {}
 };
 </script>
 <style scoped lang="postcss">
+.scroll-content {
+  background-color: var(--bgColor);
+  max-height: 300px;
+  overflow: scroll;
+  & p {
+    line-height: 36px;
+    text-indent: 2em;
+  }
+}
 </style>
