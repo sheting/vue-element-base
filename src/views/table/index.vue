@@ -3,6 +3,7 @@
     el-table(
       ref="multipleTable"
       :data="tableData"
+      :default-sort = "{prop: 'date', order: 'descending'}"
       tooltip-effect="dark"
       style="width: 100%"
       v-loading="pending"
@@ -10,7 +11,7 @@
       element-loading-spinner="el-icon-loading"
       element-loading-background="rgba(0, 0, 0, 0.8)")
       el-table-column(type="selection", width="55")
-      el-table-column(label="日期")
+      el-table-column(prop="date", label="日期", sortable)
         template(slot-scope="scope")
           i.el-icon-time
           | {{scope.row.date}}
