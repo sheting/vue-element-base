@@ -4,6 +4,7 @@
       ref="multipleTable"
       :data="tableData"
       :default-sort = "{prop: 'date', order: 'descending'}"
+      height="450"
       tooltip-effect="dark"
       style="width: 100%"
       v-loading="pending"
@@ -85,6 +86,30 @@ export default {
         },
         {
           date: '2019-02-14',
+          name: '智小链',
+          address1: '北京市链块区链块路1024号',
+          address2: '北京市链块区链块路1024号',
+          address3: '北京市东城区环球贸易中心B座',
+          tag: '家'
+        },
+        {
+          date: '2019-02-13',
+          name: '智小链',
+          address1: '北京市链块区链块路1024号',
+          address2: '北京市链块区链块路1024号',
+          address3: '北京市东城区环球贸易中心B座',
+          tag: '公司'
+        },
+        {
+          date: '2019-02-12',
+          name: '智小链',
+          address1: '北京市链块区链块路1024号',
+          address2: '北京市链块区链块路1024号',
+          address3: '北京市东城区环球贸易中心B座',
+          tag: '公司'
+        },
+        {
+          date: '2019-02-11',
           name: '智小链',
           address1: '北京市链块区链块路1024号',
           address2: '北京市链块区链块路1024号',
