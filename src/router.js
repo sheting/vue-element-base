@@ -15,7 +15,7 @@ const routers = [
           component: () => import('@/views/dashboard'),
           name: 'dashboard',
           meta: {
-            title: '概览业',
+            title: 'dashboard',
             // requireAuth: true,
             noCache: true
           }
@@ -26,7 +26,7 @@ const routers = [
           name: 'components',
           redirect: '/components/table',
           meta: {
-            title: '概览业',
+            title: 'components',
             // requireAuth: true,
             noCache: true
           },
