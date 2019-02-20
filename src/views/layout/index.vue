@@ -65,11 +65,12 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
-@import "assets/styles/variable.css";
-
 .container{background-color: #f5f5f5; min-height: 100vh;}
 .logo{
-  &::before{content: 'logo';display: inline-block;text-transform:uppercase;font-size: 20px;color: var(--primary);}
+  margin-top: 5px;
+  &::before{
+    content: '';width: 85px;height: 40px;display: inline-block;background-image: url('~@/assets/images/logo.png');background-size: cover;
+  }
 }
 .header{
   height: 62px; display: flex;align-items: center;justify-content: space-between;background: #2f323f;color: #fff;
