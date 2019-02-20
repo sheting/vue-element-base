@@ -15,7 +15,7 @@ const routers = [
           component: () => import('@/views/dashboard'),
           name: 'dashboard',
           meta: {
-            title: 'dashboard',
+            title: 'Dashboard',
             // requireAuth: true,
             noCache: true
           }
@@ -26,7 +26,7 @@ const routers = [
           name: 'components',
           redirect: '/components/table',
           meta: {
-            title: 'components',
+            title: 'Components',
             // requireAuth: true,
             noCache: true
           },
@@ -36,7 +36,7 @@ const routers = [
               component: () => import('@/views/table'),
               name: 'table',
               meta: {
-                title: 'tables',
+                title: 'Tables',
                 // requireAuth: true,
                 noCache: true
               }
@@ -46,7 +46,7 @@ const routers = [
               component: () => import('@/views/card'),
               name: 'card',
               meta: {
-                title: 'cards',
+                title: 'Cards',
                 // requireAuth: true,
                 noCache: true
               }
