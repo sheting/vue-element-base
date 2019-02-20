@@ -1,9 +1,17 @@
 <template lang="pug">
 el-card(shadow="never")
   el-button(
-	type="primary"
-	v-loading.fullscreen.lock="loading1"
-	@click="openFullScreen") 点击加载全局loading
+    type="primary"
+    @click="openButtonLoading"
+    v-loading="loading3") 点击登录
+  el-button(
+    type="primary"
+    @click="openFullScreen"
+    v-loading.fullscreen.lock="loading1"
+    element-loading-spinner="el-icon-loading"
+    element-loading-text="拼命加载中..."
+    element-loading-background='rgba(155, 155, 155, 0.5)'
+    ) 点击加载全局loading
   el-button(type="primary" @click="openLoading") 点击加载局部loading
   el-card.box-card(
 	  shadow="never"
@@ -22,10 +30,17 @@ export default {
     return {
       loading1: false,
       loading2: false,
+      loading3: false,
       nums: []
     };
   },
   methods: {
+    openButtonLoading() {
+      this.loading3 = true;
+      setTimeout(() => {
+        this.loading3 = false;
+      }, 2000);
+    },
     openFullScreen() {
       this.loading1 = true;
       setTimeout(() => {
@@ -48,5 +63,7 @@ export default {
   width: 600px;
   height: 400px;
   border: 2px solid #999;
+}
+.el-loading-spinner i.loading {
 }
 </style>
