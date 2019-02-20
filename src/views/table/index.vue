@@ -20,7 +20,7 @@
       el-table-column(prop="address1",label="家庭地址", show-overflow-tooltip)
       el-table-column(prop="address2",label="居住地址", show-overflow-tooltip)
       el-table-column(prop="address3",label="公司地址", show-overflow-tooltip)
-      el-table-column(prop="tag", label="标签", width="100")
+      el-table-column(prop="tag", label="标签", width="100", :filters="tagFilters" :filter-method="filterTag" filter-placement="bottom-end")
         template(slot-scope="scope")
           el-tag(:type="scope.row.tag === '家' ? 'primary' : 'success'", disable-transitions) {{scope.row.tag}}
       el-table-column(label="操作")

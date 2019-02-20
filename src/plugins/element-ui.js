@@ -31,7 +31,8 @@ import {
     Message,
     MessageBox,
     Upload,
-    Loading
+    Loading,
+    Scrollbar
   } from 'element-ui'
   
   export default {
@@ -67,6 +68,7 @@ import {
       Vue.use(Col)
       Vue.use(Upload)
       Vue.use(Loading)
+      Vue.use(Scrollbar)
       Vue.prototype.$message = Message
       Vue.prototype.$alert = MessageBox.alert
       Vue.prototype.$confirm = MessageBox.confirm
