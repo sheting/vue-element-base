@@ -91,6 +91,15 @@ const routers = [
             }
           },
           {
+            path: 'message',
+            component: () => import('@/views/message'),
+            name: 'message',
+            meta: {
+              title: 'message',
+              // requireAuth: true,
+            }
+          },
+          {
             path: 'variables',
             name: 'variables',
             component: () => import('@/views/variables'),
