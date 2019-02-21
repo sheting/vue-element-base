@@ -70,6 +70,16 @@ const routers = [
               // requireAuth: true,
               noCache: true
             }
+          },
+          {
+            path: 'message',
+            component: () => import('@/views/message'),
+            name: 'message',
+            meta: {
+              title: 'message',
+              // requireAuth: true,
+              noCache: true
+            }
           }
         ]
       }

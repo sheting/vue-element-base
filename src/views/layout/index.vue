@@ -45,6 +45,10 @@ el-container.container
               router-link(tag="li", to="/components/dialog")
                 svg-icon(icon-class="dialog")
                 span Dialog
+            el-menu-item(index="/components/message")
+              router-link(tag="li", to="/components/message")
+                svg-icon(icon-class="message")
+                span Message
     el-main
       router-view
 </template>
