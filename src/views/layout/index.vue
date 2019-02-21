@@ -49,6 +49,10 @@ el-container.container
               router-link(tag="li", to="/components/dialog")
                 svg-icon(icon-class="dialog")
                 span Dialog
+            el-menu-item(index="/components/variables")
+              router-link(tag="li", to="/components/variables")
+                svg-icon(icon-class="card")
+                span Variables
     el-main
       router-view
 </template>
@@ -77,10 +81,10 @@ export default {
 };
 </script>
 <style scoped lang="postcss">
-.container {
-  background-color: #f5f5f5;
-  min-height: 100vh;
+:root{
+  --sidebarBgColor: #fc0;
 }
+.container {min-height: 100vh;background-color: #f5f5f5}
 .logo {
   margin-top: 5px;
   &::before {
@@ -97,7 +101,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #2f323f;
+  background: var(--topBgColor);
   color: #fff;
   position: fixed;
   left: 0;
@@ -117,6 +121,8 @@ export default {
   margin-top: 62px;
   & .el-menu {
     height: 100%;
+    background-color: var(--sidebarBgColor);
   }
 }
+
 </style>

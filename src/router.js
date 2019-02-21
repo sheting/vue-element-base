@@ -21,16 +21,16 @@ const routers = [
         }
       },
       {
-          path: 'components',
-          component: () => import('@/views/base-layout'),
-          name: 'components',
-          redirect: '/components/table',
-          meta: {
-            title: 'Components',
-            // requireAuth: true,
-            noCache: true
-          },
-          children: [
+        path: 'components',
+        component: () => import('@/views/base-layout'),
+        name: 'components',
+        redirect: '/components/table',
+        meta: {
+          title: 'Components',
+          // requireAuth: true,
+          noCache: true
+        },
+        children: [
           {
             path: 'table',
             component: () => import('@/views/table'),
@@ -87,6 +87,15 @@ const routers = [
             meta: {
               title: 'dialog',
               // requireAuth: true,
+              noCache: true
+            }
+          },
+          {
+            path: 'variables',
+            name: 'variables',
+            component: () => import('@/views/variables'),
+            meta: {
+              title: 'variables',
               noCache: true
             }
           }

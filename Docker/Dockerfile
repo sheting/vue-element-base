@@ -2,7 +2,10 @@ ARG DOCKER_REPO
 
 FROM ${DOCKER_REPO}vue-cli-3-dev as dev
 COPY ./Docker/nginx/dev.conf /etc/nginx/conf.d/default.conf
-RUN echo '^^^dev env Finished.'
+
+RUN \
+  yarn global add element-theme && \
+  echo '^^^dev env Finished.'
 
 # build
 FROM ${DOCKER_REPO}vue-cli-3-dev as build
