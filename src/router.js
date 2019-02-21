@@ -50,6 +50,15 @@ const routers = [
                 // requireAuth: true,
                 noCache: true
               }
+            },
+            {
+              path: 'pagination',
+              component: () => import('@/views/pagination'),
+              name: 'pagination',
+              meta: {
+                title: 'pagination',
+                noCache: true
+              }
             }
           ]
         }

@@ -37,6 +37,10 @@ el-container.container
               router-link(tag="li", to="/components/card")
                 svg-icon(icon-class="card")
                 span Card
+            el-menu-item(index="/components/pagination")
+              router-link(tag="li", to="/components/pagination")
+                svg-icon(icon-class="card")
+                span pagination
     el-main
       router-view
 </template>
