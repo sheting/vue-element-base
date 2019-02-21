@@ -93,7 +93,7 @@ export default {
   --sidebarBgColor: #fc0;
 }
 .container {
-  min-height: 100vh;
+  height: 100vh;
   background-color: #f5f5f5;
 }
 .logo {
