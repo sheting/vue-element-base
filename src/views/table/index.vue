@@ -1,31 +1,35 @@
 <template lang="pug">
+.table
+  el-card.table-filter
+    el-form.filter-form(ref="form", :model="form", label-width="80px")
+      el-row(:gutter="10")
+        el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+          el-form-item(label="姓名:", prop="name")
+            el-input(v-model="form.name")
+        el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+          el-form-item(label="家庭地址:", prop="address1")
+            el-input(v-model="form.address1")
+        el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+          el-form-item(label="居住地址:", prop="address2")
+            el-input(v-model="form.address2")
+        el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+          el-form-item(label="公司地址:", prop="address3")
+            el-input(v-model="form.address3")
+        el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+          el-form-item(label="标签:", prop="tag")
+            el-select(v-model="form.tag", placeholder="请选择标签")
+              el-option(v-for="(type, index) in tagFilters", :key="index", :label="type.text", :value="type.value")
+        el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+          el-form-item(label="日期:", prop="date1")
+            el-date-picker(v-model="form.date1", type="date", value-format="yyyy-MM-dd", placeholder="选择日期")
+        el-col(:span="24")
+          el-col.text-center(:span="12" :offset="6")
+            el-button(type="primary", size="small", @click="doSearch", round) 查询
+            el-button(size="small", @click="resetForm", round) 重置
   el-card
-    .table-filter
-      el-form.filter-form(ref="form", :model="form", label-width="90px")
-        el-row(:gutter="10")
-          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
-            el-form-item(label="姓名:", prop="name")
-              el-input(v-model="form.name")
-          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
-            el-form-item(label="家庭地址:", prop="address1")
-              el-input(v-model="form.address1")
-          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
-            el-form-item(label="居住地址:", prop="address2")
-              el-input(v-model="form.address2")
-          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
-            el-form-item(label="公司地址:", prop="address3")
-              el-input(v-model="form.address3")
-          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
-            el-form-item(label="标签:", prop="tag")
-              el-select(v-model="form.tag", placeholder="请选择标签")
-                el-option(v-for="(type, index) in tagFilters", :key="index", :label="type.text", :value="type.value")
-          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
-            el-form-item(label="日期:", prop="date1")
-              el-date-picker(v-model="form.date1", type="date", value-format="yyyy-MM-dd", placeholder="选择日期")
-          el-col(:span="24")
-            el-col.text-center(:span="12" :offset="6")
-              el-button(type="primary", size="small", @click="doSearch", round) 查询
-              el-button(size="small", @click="resetForm", round) 重置
+    .batch-operation
+      el-button(size="mini", type="danger") 批量删除
+      el-button(size="mini", type="warning") 批量修改
     el-table(
       ref="multipleTable"
       :data="tableData"
@@ -196,9 +200,9 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
+.table-filter{margin-bottom: 20px;}
 .text-center{text-align: center;}
 .filter-form{
-  margin-bottom: 20px;
   & .el-input,
   & .el-select{
     width: 100%;max-width: 350px;
