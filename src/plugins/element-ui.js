@@ -33,7 +33,13 @@ import {
   MessageBox,
   Upload,
   Loading,
-  Scrollbar
+  Scrollbar,
+  DatePicker,
+  Switch,
+  CheckboxGroup,
+  Checkbox,
+  Radio,
+  TimePicker,
 } from 'element-ui'
 
 export default {
@@ -71,6 +77,12 @@ export default {
     Vue.use(Upload)
     Vue.use(Loading)
     Vue.use(Scrollbar)
+    Vue.use(DatePicker)
+    Vue.use(Switch)
+    Vue.use(CheckboxGroup)
+    Vue.use(Checkbox)
+    Vue.use(Radio)
+    Vue.use(TimePicker)
     Vue.prototype.$message = Message
     Vue.prototype.$alert = MessageBox.alert
     Vue.prototype.$confirm = MessageBox.confirm

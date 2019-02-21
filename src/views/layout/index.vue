@@ -57,6 +57,10 @@ el-container.container
               router-link(tag="li", to="/components/variables")
                 svg-icon(icon-class="card")
                 span Variables
+            el-menu-item(index="/components/form")
+              router-link(tag="li", to="/components/form")
+                svg-icon(icon-class="form")
+                span Form
     el-main
       router-view
 </template>
