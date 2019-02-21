@@ -37,6 +37,10 @@ el-container.container
               router-link(tag="li", to="/components/card")
                 svg-icon(icon-class="card")
                 span Card
+            el-menu-item(index="/components/variables")
+              router-link(tag="li", to="/components/variables")
+                svg-icon(icon-class="card")
+                span Variables
     el-main
       router-view
 </template>
@@ -65,20 +69,19 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
-.container{background-color: #f5f5f5; min-height: 100vh;}
-.logo{
+.container {background-color: #fafafa; min-height: 100vh;}
+.logo {
   margin-top: 5px;
   &::before{
     content: '';width: 85px;height: 40px;display: inline-block;background-image: url('~@/assets/images/logo.png');background-size: cover;
   }
 }
-.header{
-  height: 62px; display: flex;align-items: center;justify-content: space-between;background: #2f323f;color: #fff;
-  position: fixed;left: 0;right: 0;top: 0;z-index: 99;
+.header {
+  position: fixed;left: 0;right: 0;top: 0;z-index: 99;height: 62px; display: flex;align-items: center;justify-content: space-between;color: #fff;background-color: var(--topBgColor);
   & .el-dropdown-link{display:inline-flex;align-items: center;justify-content: space-between;cursor: pointer; color: #fff;font-weight: 500;}
 }
-.sidebar{
+.sidebar {
   margin-top: 62px;
-  & .el-menu{height: 100%;}
+  & .el-menu {height: 100%;background-color: var(--sidebarBgColor)}
 }
 </style>

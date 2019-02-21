@@ -8,7 +8,9 @@ echo "...... INSTALL PACKAGES"
 NODE_ENV=development yarn
 
 echo "...... START SERVER"
-yarn dev &
+
+yarn dev > dev.log 2>&1 &
+et -w &
 
 FINISH=$(date +%s)
 

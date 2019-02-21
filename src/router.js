@@ -50,6 +50,15 @@ const routers = [
                 // requireAuth: true,
                 noCache: true
               }
+            },
+            {
+              path: 'variables',
+              name: 'variables',
+              component: () => import('@/views/variables'),
+              meta: {
+                title: 'variables',
+                noCache: true
+              }
             }
           ]
         }
@@ -70,5 +79,5 @@ const routers = [
       meta: {title: `Error - 404`}
     }
   ]
-  
+
   export default routers
