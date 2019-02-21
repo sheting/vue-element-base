@@ -107,6 +107,15 @@ const routers = [
               title: 'variables',
               noCache: true
             }
+          },
+          {
+            path: 'form',
+            name: 'form',
+            component: () => import('@/views/form'),
+            meta: {
+              title: 'Form',
+              noCache: true
+            }
           }
         ]
       }
