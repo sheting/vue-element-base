@@ -21,23 +21,42 @@ const routers = [
         }
       },
       {
-        path: 'components',
-        component: () => import('@/views/base-layout'),
-        name: 'components',
-        redirect: '/components/table',
-        meta: {
-          title: 'Components',
-          // requireAuth: true,
-          noCache: true
-        },
-        children: [
+          path: 'components',
+          component: () => import('@/views/base-layout'),
+          name: 'components',
+          redirect: '/components/table',
+          meta: {
+            title: 'Components',
+            // requireAuth: true,
+            noCache: true
+          },
+          children: [
           {
             path: 'table',
             component: () => import('@/views/table'),
             name: 'table',
             meta: {
-              title: 'Tables',
+              title: 'tables',
               // requireAuth: true,
+              noCache: true
+            }
+          },
+          {
+            path: 'card',
+            component: () => import('@/views/card'),
+            name: 'card',
+            meta: {
+              title: 'cards',
+              // requireAuth: true,
+              noCache: true
+            }
+          },
+          {
+            path: 'pagination',
+            component: () => import('@/views/pagination'),
+            name: 'pagination',
+            meta: {
+              title: 'pagination',
               noCache: true
             }
           },
