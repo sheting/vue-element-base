@@ -41,48 +41,82 @@ el-container.container
               router-link(tag="li", to="/components/pagination")
                 svg-icon(icon-class="card")
                 span pagination
+            el-menu-item(index="/components/loading")
+              router-link(tag="li", to="/components/loading")
+                svg-icon(icon-class="load")
+                span Loading
+            el-menu-item(index="/components/dialog")
+              router-link(tag="li", to="/components/dialog")
+                svg-icon(icon-class="dialog")
+                span Dialog
     el-main
       router-view
 </template>
 
 <script>
 export default {
-  name: 'global-layout',
-  data () {
+  name: "global-layout",
+  data() {
     return {
       isCollapse: false
-    }
+    };
   },
   computed: {
-    active () {
-      return this.$route.path
+    active() {
+      return this.$route.path;
     }
   },
   methods: {
-    logout () {
+    logout() {
       this.$message({
-        message: '退出成功',
-        type: 'success'
-      })
+        message: "退出成功",
+        type: "success"
+      });
     }
   }
-}
+};
 </script>
 <style scoped lang="postcss">
-.container{background-color: #f5f5f5; min-height: 100vh;}
-.logo{
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+.logo {
   margin-top: 5px;
-  &::before{
-    content: '';width: 85px;height: 40px;display: inline-block;background-image: url('~@/assets/images/logo.png');background-size: cover;
+  &::before {
+    content: "";
+    width: 85px;
+    height: 40px;
+    display: inline-block;
+    background-image: url("~@/assets/images/logo.png");
+    background-size: cover;
   }
 }
-.header{
-  height: 62px; display: flex;align-items: center;justify-content: space-between;background: #2f323f;color: #fff;
-  position: fixed;left: 0;right: 0;top: 0;z-index: 99;
-  & .el-dropdown-link{display:inline-flex;align-items: center;justify-content: space-between;cursor: pointer; color: #fff;font-weight: 500;}
+.header {
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2f323f;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  & .el-dropdown-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+  }
 }
-.sidebar{
+.sidebar {
   margin-top: 62px;
-  & .el-menu{height: 100%;}
+  & .el-menu {
+    height: 100%;
+  }
 }
 </style>
