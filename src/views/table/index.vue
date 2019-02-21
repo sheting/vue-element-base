@@ -1,5 +1,31 @@
 <template lang="pug">
   el-card
+    .table-filter
+      el-form.filter-form(ref="form", :model="form", label-width="90px")
+        el-row(:gutter="10")
+          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+            el-form-item(label="姓名:", prop="name")
+              el-input(v-model="form.name")
+          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+            el-form-item(label="家庭地址:", prop="address1")
+              el-input(v-model="form.address1")
+          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+            el-form-item(label="居住地址:", prop="address2")
+              el-input(v-model="form.address2")
+          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+            el-form-item(label="公司地址:", prop="address3")
+              el-input(v-model="form.address3")
+          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+            el-form-item(label="标签:", prop="tag")
+              el-select(v-model="form.tag", placeholder="请选择标签")
+                el-option(v-for="(type, index) in tagFilters", :key="index", :label="type.text", :value="type.value")
+          el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
+            el-form-item(label="日期:", prop="date1")
+              el-date-picker(v-model="form.date1", type="date", value-format="yyyy-MM-dd", placeholder="选择日期")
+          el-col(:span="24")
+            el-col.text-center(:span="12" :offset="6")
+              el-button(type="primary", size="small", @click="doSearch", round) 查询
+              el-button(size="small", @click="resetForm", round) 重置
     el-table(
       ref="multipleTable"
       :data="tableData"
@@ -36,7 +62,15 @@ export default {
     return {
       tableData: [],
       pending: false,
-      tagFilters: [{ text: '家', value: '家' }, { text: '公司', value: '公司' }]
+      tagFilters: [{ text: `家`, value: `家`, key: `home`}, { text: `公司`, value: `公司`, key: `company`}],
+      form: {
+        name: '',
+        tag: '',
+        date1: '',
+        address1: '',
+        address2: '',
+        address3: ''
+      }
     }
   },
   methods: {
@@ -116,7 +150,7 @@ export default {
           address3: '北京市东城区环球贸易中心B座',
           tag: '家'
         }]
-      }, 3000)
+      }, 500)
     },
     filterTag (value, row) {
       return row.tag === value
@@ -145,6 +179,15 @@ export default {
           message: `已取消删除`
         })
       })
+    },
+    doSearch () {
+      this.$message({
+        message: `查询成功`,
+        type: 'success'
+      })
+    },
+    resetForm() {
+      this.$refs.form.resetFields()
     }
   },
   mounted() {
@@ -153,4 +196,12 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
+.text-center{text-align: center;}
+.filter-form{
+  margin-bottom: 20px;
+  & .el-input,
+  & .el-select{
+    width: 100%;max-width: 350px;
+  }
+}
 </style>
