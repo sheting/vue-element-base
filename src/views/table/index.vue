@@ -202,6 +202,7 @@ export default {
 <style scoped lang="postcss">
 .table-filter{margin-bottom: 20px;}
 .text-center{text-align: center;}
+.batch-operation{padding: 0 0 10px 0;}
 .filter-form{
   & .el-input,
   & .el-select{
