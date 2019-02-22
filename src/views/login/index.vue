@@ -123,7 +123,7 @@ export default {
         box-sizing: border-box;
         position: relative;
         width: 330px;
-        padding-top: 10%;
+        padding-top: 8%;
         margin: 0 auto;
         & .login-title {
           position: relative;
@@ -163,7 +163,7 @@ export default {
         }
         & .foot {
           position: absolute;
-          bottom: 50px;
+          bottom: 3%;
           display: block;
           width: 100%;
           font-size: 14px;
