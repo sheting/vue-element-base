@@ -65,7 +65,7 @@ export default {
         this.pending = false
       }, 1000)
       setTimeout(() => {
-        // this.$router.push({ path: '/' })
+        this.$router.push({ path: '/' })
       }, 2000)
     }
   },
