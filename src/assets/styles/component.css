@@ -1,3 +1,22 @@
 .el-menu [class^=svg-icon] {
   vertical-align: text-bottom;margin-right: 5px;width: 20px;text-align: center;font-size: 18px;color: #909399;
 }
+.el-input.login-input input{
+  border-color: var(--inputBdColor) !important;
+  border-radius:0 10px 10px 0;
+  height: 52px;
+  border-left: none;
+  color: #005aff;
+
+}
+.el-input.login-input .el-input-group__prepend{
+  box-sizing: border-box;
+  width: 100px;
+  border-radius:10px 0 0 10px;
+  background: #fff;
+  padding-right: 8px;
+}
+.el-input.login-input .el-form-item__error{
+  margin-left: 10px;
+  padding-top: 10px;
+}
