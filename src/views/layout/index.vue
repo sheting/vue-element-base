@@ -10,7 +10,7 @@ el-container.container
         el-dropdown-item
           span(@click="logout") 退出登录
   el-container.sidebar
-    el-aside(width="200px")
+    el-aside(:width="leftWidth" ref='leftNav')
       el-menu(:default-active="active", :collapse="isCollapse")
         el-menu-item(index="/dashboard")
           router-link(tag="li", to="/dashboard")
@@ -70,6 +70,8 @@ export default {
   name: "global-layout",
   data() {
     return {
+      leftWidth:'200px',
+      pageWidth: document.body.clientWidth,
       isCollapse: false
     };
   },
@@ -78,12 +80,34 @@ export default {
       return this.$route.path;
     }
   },
+  created(){
+    this.resize()
+  },
   methods: {
     logout() {
       this.$message({
         message: "退出成功",
         type: "success"
       });
+    },
+    resize(){
+      this.pageWidth = window.screenWidth = document.body.clientWidth;
+        return (() => {
+            if(this.pageWidth <= 960){
+              this.$nextTick(()=>{
+                this.leftWidth = '65px'
+                this.isCollapse = true
+              })
+            }else{
+               this.leftWidth = '200px'
+               this.isCollapse = false
+            }
+        })()
+    }
+  },
+  mounted () {
+    window.onresize = () => {
+        this.resize()
     }
   }
 };
