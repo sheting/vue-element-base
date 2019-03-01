@@ -110,4 +110,7 @@ export default {
 </script>
 
 <style scoped>
+.buttons{
+    margin-top: 15px;
+}
 </style>
