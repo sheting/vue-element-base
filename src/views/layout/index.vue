@@ -61,6 +61,10 @@ el-container.container
               router-link(tag="li", to="/components/form")
                 svg-icon(icon-class="form")
                 span Form
+            el-menu-item(index="/components/tree")
+              router-link(tag="li", to="/components/tree")
+                svg-icon(icon-class="form")
+                span tree
     el-main
       router-view
 </template>

@@ -116,6 +116,15 @@ const routers = [
               title: 'Form',
               noCache: true
             }
+          },
+          {
+            path: 'tree',
+            name: 'tree',
+            component: () => import('@/views/tree'),
+            meta: {
+              title: 'tree',
+              noCache: true
+            }
           }
         ]
       }

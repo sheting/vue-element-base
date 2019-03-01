@@ -26,6 +26,7 @@ import {
   Pagination,
   Tooltip,
   Tag,
+  Tree,
   Icon,
   Row,
   Col,
@@ -71,6 +72,7 @@ export default {
     Vue.use(Pagination)
     Vue.use(Tooltip)
     Vue.use(Tag)
+    Vue.use(Tree)
     Vue.use(Icon)
     Vue.use(Row)
     Vue.use(Col)
