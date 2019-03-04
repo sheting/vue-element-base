@@ -78,14 +78,14 @@ export default {
         children: "children",
         label: "label"
       }
-    };
+    }
   },
   methods: {
     getCheckedNodes() {
-      console.log(this.$refs.tree.getCheckedNodes());
+      console.log(this.$refs.tree.getCheckedNodes())
     },
     getCheckedKeys() {
-      console.log(this.$refs.tree.getCheckedKeys());
+      console.log(this.$refs.tree.getCheckedKeys())
     },
     setCheckedNodes() {
       this.$refs.tree.setCheckedNodes([
@@ -97,16 +97,16 @@ export default {
           id: 9,
           label: "三级 1-1-1"
         }
-      ]);
+      ])
     },
     setCheckedKeys() {
-      this.$refs.tree.setCheckedKeys([3]);
+      this.$refs.tree.setCheckedKeys([3])
     },
     resetChecked() {
-      this.$refs.tree.setCheckedKeys([]);
+      this.$refs.tree.setCheckedKeys([])
     }
   }
-};
+}
 </script>
 
 <style scoped>

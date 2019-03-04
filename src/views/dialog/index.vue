@@ -22,10 +22,10 @@ export default {
       dialogVisible: false,
       confirmVisible: false,
       title: "审核申请"
-    };
+    }
   },
   methods: {}
-};
+}
 </script>
 <style scoped lang="postcss">
 .scroll-content {

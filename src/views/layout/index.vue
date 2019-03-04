@@ -77,11 +77,11 @@ export default {
       leftWidth:'200px',
       pageWidth: document.body.clientWidth,
       isCollapse: false
-    };
+    }
   },
   computed: {
     active() {
-      return this.$route.path;
+      return this.$route.path
     }
   },
   created(){
@@ -92,10 +92,10 @@ export default {
       this.$message({
         message: "退出成功",
         type: "success"
-      });
+      })
     },
     resize(){
-      this.pageWidth = window.screenWidth = document.body.clientWidth;
+      this.pageWidth = window.screenWidth = document.body.clientWidth
         return (() => {
             if(this.pageWidth <= 960){
               this.$nextTick(()=>{
@@ -114,7 +114,7 @@ export default {
         this.resize()
     }
   }
-};
+}
 </script>
 <style scoped lang="postcss">
 :root {
