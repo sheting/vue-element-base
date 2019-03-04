@@ -16,28 +16,24 @@
   </el-row>
 </template>
 
-<script>
-export default {
-  name: "pagination",
-  data() {
-    return {
-      cneter:'cneter',
-      currentPage: 1
-    }
-  },
-  methods: {
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`)
-    },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`)
-    },
-    prevClick(val) {
-      console.log(val)
-    },
-    nextClick(val) {
-      console.log(val)
-    }
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+@Component
+export default class PaginationComponent extends Vue {
+  currentPage!: number
+
+  handleSizeChange (val:any):void {
+    console.log(`每页 ${val} 条`)
+  }
+  handleCurrentChange (val:any):void {
+    console.log(`当前页: ${val}`)
+  }
+  prevClick(val:any):void {
+    console.log(val)
+  }
+  nextClick(val:any):void {
+    console.log(val)
   }
 }
 </script>

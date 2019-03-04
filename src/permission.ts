@@ -5,7 +5,7 @@ import Util from '@/libs/util'
 // import store from './store'
 
 Vue.use(VueRouter)
-const scrollBehavior = (to, from, savedPosition) => {
+const scrollBehavior = (to: any, from: any, savedPosition: any) => {
 }
 // 路由配置
 const router = new VueRouter({

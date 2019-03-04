@@ -7,12 +7,12 @@ const routers = [
       scrollToTop: true,
       // requireAuth: true
     },
-    component: () => import('@/views/layout'),
+    component: () => import('@/views/layout/index.vue'),
     redirect: '/dashboard',
     children: [
       {
         path: 'dashboard',
-        component: () => import('@/views/dashboard'),
+        component: () => import('@/views/dashboard/index.vue'),
         name: 'dashboard',
         meta: {
           title: 'Dashboard',
@@ -22,7 +22,7 @@ const routers = [
       },
       {
         path: 'components',
-        component: () => import('@/views/base-layout'),
+        component: () => import('@/views/base-layout.vue'),
         name: 'components',
         redirect: '/components/table',
         meta: {
@@ -33,7 +33,7 @@ const routers = [
         children: [
           {
             path: 'table',
-            component: () => import('@/views/table'),
+            component: () => import('@/views/table/index.vue'),
             name: 'table',
             meta: {
               title: 'tables',
@@ -43,7 +43,7 @@ const routers = [
           },
           {
             path: 'card',
-            component: () => import('@/views/card'),
+            component: () => import('@/views/card/index.vue'),
             name: 'card',
             meta: {
               title: 'cards',
@@ -53,7 +53,7 @@ const routers = [
           },
           {
             path: 'pagination',
-            component: () => import('@/views/pagination'),
+            component: () => import('@/views/pagination/index.vue'),
             name: 'pagination',
             meta: {
               title: 'pagination',
@@ -62,7 +62,7 @@ const routers = [
           },
           {
             path: 'card',
-            component: () => import('@/views/card'),
+            component: () => import('@/views/card/index.vue'),
             name: 'card',
             meta: {
               title: 'Cards',
@@ -72,7 +72,7 @@ const routers = [
           },
           {
             path: 'loading',
-            component: () => import('@/views/loading'),
+            component: () => import('@/views/loading/index.vue'),
             name: 'loading',
             meta: {
               title: 'loading',
@@ -82,7 +82,7 @@ const routers = [
           },
           {
             path: 'dialog',
-            component: () => import('@/views/dialog'),
+            component: () => import('@/views/dialog/index.vue'),
             name: 'dialog',
             meta: {
               title: 'dialog',
@@ -92,7 +92,7 @@ const routers = [
           },
           {
             path: 'message',
-            component: () => import('@/views/message'),
+            component: () => import('@/views/message/index.vue'),
             name: 'message',
             meta: {
               title: 'message',
@@ -102,7 +102,7 @@ const routers = [
           {
             path: 'variables',
             name: 'variables',
-            component: () => import('@/views/variables'),
+            component: () => import('@/views/variables/index.vue'),
             meta: {
               title: 'variables',
               noCache: true
@@ -111,7 +111,7 @@ const routers = [
           {
             path: 'form',
             name: 'form',
-            component: () => import('@/views/form'),
+            component: () => import('@/views/form/index.vue'),
             meta: {
               title: 'Form',
               noCache: true
@@ -120,7 +120,7 @@ const routers = [
           {
             path: 'tree',
             name: 'tree',
-            component: () => import('@/views/tree'),
+            component: () => import('@/views/tree/index.vue'),
             meta: {
               title: 'tree',
               noCache: true
@@ -134,14 +134,14 @@ const routers = [
     path: '/login',
     alias: '/signin',
     name: 'login',
-    component: () => import('@/views/login'),
+    component: () => import('@/views/login/index.vue'),
     meta: { title: `登录` }
   },
   {
     path: '/404',
     alias: '/not-found',
     name: '404',
-    component: () => import('@/views/404'),
+    component: () => import('@/views/404.vue'),
     meta: { title: `Error - 404` }
   }
 ]

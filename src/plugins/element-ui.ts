@@ -27,14 +27,14 @@ import {
   Tooltip,
   Tag,
   Tree,
-  Icon,
+  // Icon,
   Row,
   Col,
   Message,
   MessageBox,
   Upload,
   Loading,
-  Scrollbar,
+  // Scrollbar,
   DatePicker,
   Switch,
   CheckboxGroup,
@@ -44,7 +44,7 @@ import {
 } from 'element-ui'
 
 export default {
-  install(Vue) {
+  install(Vue: any) {
     Vue.use(Alert)
     Vue.use(Card)
     Vue.use(Container)
@@ -73,12 +73,12 @@ export default {
     Vue.use(Tooltip)
     Vue.use(Tag)
     Vue.use(Tree)
-    Vue.use(Icon)
+    // Vue.use(Icon)
     Vue.use(Row)
     Vue.use(Col)
     Vue.use(Upload)
     Vue.use(Loading)
-    Vue.use(Scrollbar)
+    // Vue.use(Scrollbar)
     Vue.use(DatePicker)
     Vue.use(Switch)
     Vue.use(CheckboxGroup)

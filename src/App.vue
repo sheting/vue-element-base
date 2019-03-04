@@ -2,13 +2,13 @@
   #app
     router-view
 </template>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
 
-<script>
-export default {
-  name: 'app'
+@Component
+export default class AppComponent extends Vue {
 }
 </script>
-
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
