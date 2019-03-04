@@ -21,7 +21,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
 export default class PaginationComponent extends Vue {
-  currentPage!: number
+  currentPage: number = 1
 
   handleSizeChange (val:any):void {
     console.log(`每页 ${val} 条`)
