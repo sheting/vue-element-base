@@ -106,7 +106,7 @@ export default {
         accept: 'image/jpeg, image/png',
         disabled: false,
         limit: 2,
-        drag: false,
+        drag: true,
         listType: 'picture'
       },
       fileList: []
