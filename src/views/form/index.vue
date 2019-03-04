@@ -34,6 +34,7 @@ el-card
         :action="fileParams.action"
         :auto-upload="fileParams.auto"
         :multiple="fileParams.multiple"
+        :accept="fileParams.accept"
         :disabled="fileParams.disabled"
         :limit="fileParams.limit"
         :list-type="fileParams.listType"
@@ -45,7 +46,7 @@ el-card
         :on-change="handleChange"
         :on-exceed="handleExceed"
         :file-list="fileList")
-        el-button(slot="trigger", size="small", type="primary", plain) 选择图片，{{fileList.length}}
+        el-button(slot="trigger", size="small", type="primary", plain) 选择图片
         el-button.ml10(size="small", type="success", @click="doUpload", plain) 上传到服务器
         .el-upload__tip(slot="tip") 只支持上传jpg/png文件，且不超过2MB
     el-form-item
@@ -96,6 +97,7 @@ export default {
         action: '',
         auto: false,
         multiple: false,
+        accept: ['image/jpeg, image/png'],
         disabled: false,
         limit: 2,
         drag: false,
