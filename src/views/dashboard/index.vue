@@ -63,10 +63,10 @@ export default {
           num: 9
         }
       ]
-    };
+    }
   },
   methods: {}
-};
+}
 </script>
 <style scoped lang="postcss">
 .overview-box {
