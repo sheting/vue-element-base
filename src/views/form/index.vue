@@ -46,8 +46,14 @@ el-card
         :on-change="handleChange"
         :on-exceed="handleExceed"
         :file-list="fileList")
-        el-button(slot="trigger", size="small", type="primary", plain) 选择图片
-        el-button.ml10(size="small", type="success", @click="doUpload", plain) 上传到服务器
+        div(v-if="fileParams.drag")
+          i.el-icon-upload
+          .el-upload__text
+            | 将文件拖到此处或
+            em 点击上传
+        div(v-else)
+          el-button(slot="trigger", size="small", type="primary", plain) 选择图片
+          el-button.ml10(size="small", type="success", @click="doUpload", plain) 上传到服务器
         .el-upload__tip(slot="tip") 只支持上传jpg/png文件，且不超过2MB
     el-form-item
       el-button(type="primary", @click="submitForm('initForm')") 立即创建
@@ -97,7 +103,7 @@ export default {
         action: '',
         auto: false,
         multiple: false,
-        accept: ['image/jpeg, image/png'],
+        accept: 'image/jpeg, image/png',
         disabled: false,
         limit: 2,
         drag: false,
