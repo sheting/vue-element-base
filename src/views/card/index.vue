@@ -52,10 +52,10 @@ export default {
   data() {
     return {
       active: 0
-    };
+    }
   },
   methods: {}
-};
+}
 </script>
 <style scoped lang="postcss">
 .box-card {
