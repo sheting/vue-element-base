@@ -16,7 +16,7 @@ services:
     image: $DOCKER_PROJ_NAME.dev
     command: ["-c", "nohup sh cmd/local-start.sh > base-dev.log 2>&1 && sh"]
     ports:
-      - 8888:8888
+      - 8888:80
     volumes:
       - .:/code
     container_name: $DOCKER_PROJ_NAME
