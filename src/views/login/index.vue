@@ -108,8 +108,8 @@ export default class LoginComponent extends Vue {
         background-size: cover;
         & .logo {
           display: inline-block;
-          width: 140px;
-          height: 67px;
+          width: 100px;
+          height: 72px;
           margin: 15px;
           background-image: url("~@/assets/images/login-logo.png");
           background-size: cover;
