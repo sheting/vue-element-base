@@ -40,32 +40,32 @@ div
           | content
 </template>
 
-<script>
-export default {
-  name: "dashboard",
-  data() {
-    return {
-      statics: [
-        {
-          text: "统计数据",
-          num: 12
-        },
-        {
-          text: "审核数据",
-          num: 256
-        },
-        {
-          text: "上报规则",
-          num: 39
-        },
-        {
-          text: "人员数据",
-          num: 9
-        }
-      ]
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
+  name: 'dashboard-component',
+  components: {}
+})
+export default class DashboardComponent extends Vue {
+  statics: object[] = [
+    {
+      text: "统计数据",
+      num: 12
+    },
+    {
+      text: "审核数据",
+      num: 256
+    },
+    {
+      text: "上报规则",
+      num: 39
+    },
+    {
+      text: "人员数据",
+      num: 9
     }
-  },
-  methods: {}
+  ]
 }
 </script>
 <style scoped lang="postcss">

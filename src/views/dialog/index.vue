@@ -14,17 +14,17 @@
         el-button(type="info" plain @click="dialogVisible = false") 取消
 </template>
 
-<script>
-export default {
-  name: "dialogs",
-  data() {
-    return {
-      dialogVisible: false,
-      confirmVisible: false,
-      title: "审核申请"
-    }
-  },
-  methods: {}
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
+  name: 'dialog-component',
+  components: {}
+})
+export default class DialogComponent extends Vue {
+  dialogVisible: boolean = false
+  confirmVisible: boolean = false
+  title:string = "审核申请"
 }
 </script>
 <style scoped lang="postcss">

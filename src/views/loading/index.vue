@@ -23,37 +23,37 @@ el-card(shadow="never")
       | 列表内容{{n}}
 </template>
 
-<script>
-export default {
-  name: "loading",
-  data() {
-    return {
-      loading1: false,
-      loading2: false,
-      loading3: false,
-      nums: []
-    }
-  },
-  methods: {
-    openButtonLoading() {
-      this.loading3 = true
-      setTimeout(() => {
-        this.loading3 = false
-      }, 2000)
-    },
-    openFullScreen() {
-      this.loading1 = true
-      setTimeout(() => {
-        this.loading1 = false
-      }, 2000)
-    },
-    openLoading() {
-      this.loading2 = true
-      setTimeout(() => {
-        this.loading2 = false
-        this.nums = [0, 1, 2, 3, 4, 5]
-      }, 2000)
-    }
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
+  name: 'loading-component',
+  components: {}
+})
+export default class LoadingComponent extends Vue {
+  loading1: boolean = false
+  loading2: boolean = false
+  loading3: boolean = false
+  nums: number[] = []
+
+  openButtonLoading() {
+    this.loading3 = true
+    setTimeout(() => {
+      this.loading3 = false
+    }, 2000)
+  }
+  openFullScreen() {
+    this.loading1 = true
+    setTimeout(() => {
+      this.loading1 = false
+    }, 2000)
+  }
+  openLoading() {
+    this.loading2 = true
+    setTimeout(() => {
+      this.loading2 = false
+      this.nums = [0, 1, 2, 3, 4, 5]
+    }, 2000)
   }
 }
 </script>

@@ -33,7 +33,10 @@
             span.foot 智链ChainNova © 2018 
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { Form } from 'element-ui'
+
 const formRef = () => {
   return {
     name: '',
@@ -41,35 +44,40 @@ const formRef = () => {
     remember: false
   }
 }
-export default {
-  name: 'login',
-  data() {
-    return {
-      loginForm: formRef(),
-      rules: {
-        name: [{ required: true, message: `请输入用户名`, trigger: 'change' }],
-        password: [{ required: true, message: `请输入密码`, trigger: 'change' }]
-      },
-      // desc: `您需要登录后才能进行操作`,
-      pending: false
-    }
-  },
-  methods: {
-    doLogin() {
-      this.pending = true
-      setTimeout(() => {
-        this.$message({
-          message: `登录成功`,
-          type: 'success'
-        })
-        this.pending = false
-      }, 1000)
-      setTimeout(() => {
-        this.$router.push({ path: '/' })
-      }, 2000)
-    }
-  },
-  mounted() {
+interface User {
+  name: string,
+  password: string,
+  remember: boolean
+}
+
+@Component({
+  name: 'login-component',
+  components: {}
+})
+export default class LoginComponent extends Vue {
+  loginForm: User = formRef()
+  rules: object = {
+    name: [{ required: true, message: `请输入用户名`, trigger: 'change' }],
+    password: [{ required: true, message: `请输入密码`, trigger: 'change' }]
+  }
+  pending: boolean = false
+
+  doLogin() {
+    (<Form>this.$refs.loginForm).validate((valid: boolean) => {
+      if (valid) {
+        this.pending = true
+        setTimeout(() => {
+          this.$message({
+            message: `登录成功`,
+            type: 'success'
+          })
+          this.pending = false
+        }, 1000)
+        setTimeout(() => {
+          this.$router.push({ path: '/' })
+        }, 2000)
+      }
+    })
   }
 }
 </script>

@@ -46,15 +46,14 @@ el-row(:gutter="20")
   //-       el-button(type="primary" icon="el-icon-edit" circle)
 </template>
 
-<script>
-export default {
-  name: "cards",
-  data() {
-    return {
-      active: 0
-    }
-  },
-  methods: {}
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
+  name: 'card-component',
+  components: {}
+})
+export default class CardComponent extends Vue {
 }
 </script>
 <style scoped lang="postcss">

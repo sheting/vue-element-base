@@ -7,64 +7,63 @@
     el-button(type="primary" plain @click="confirm") 确认
 </template>
 
-<script>
-export default {
-  name: "message",
-  data() {
-    return {}
-  },
-  methods: {
-    success() {
-      this.$message({
-        message: "添加成功",
-        type: "success"
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
+  name: 'message-component',
+  components: {}
+})
+export default class MessageComponent extends Vue {
+  success() {
+    this.$message({
+      message: "添加成功",
+      type: "success"
+    })
+  }
+  warning() {
+    this.$message({
+      message: "正在添加中...",
+      type: "warning"
+    })
+  }
+  danger() {
+    this.$message({
+      message: "添加失败",
+      type: "error"
+    })
+  }
+  close() {
+    this.$message({
+      showClose: true,
+      message: "5秒钟后自动关闭，你也可以点击叉号主动关闭",
+      type: "info",
+      duration: 5000
+    })
+  }
+  confirm() {
+    this.$confirm(
+      "检测到未保存的内容，是否在离开页面前保存修改？",
+      "确认信息",
+      {
+        distinguishCancelAndClose: true,
+        confirmButtonText: "保存",
+        cancelButtonText: "放弃修改"
       })
-    },
-    warning() {
-      this.$message({
-        message: "正在添加中...",
-        type: "warning"
+      .then(() => {
+        this.$message({
+          type: "info",
+          message: "保存修改"
+        })
       })
-    },
-    danger() {
-      this.$message({
-        message: "添加失败",
-        type: "error"
-      })
-    },
-    close() {
-      this.$message({
-        showClose: true,
-        message: "5秒钟后自动关闭，你也可以点击叉号主动关闭",
-        type: "info",
-        duration: 5000
-      })
-    },
-    confirm() {
-      this.$confirm(
-        "检测到未保存的内容，是否在离开页面前保存修改？",
-        "确认信息",
-        {
-          distinguishCancelAndClose: true,
-          confirmButtonText: "保存",
-          cancelButtonText: "放弃修改"
-        }
-      )
-        .then(() => {
+      .catch(action => {
+        if (action === "cancel") {
           this.$message({
             type: "info",
-            message: "保存修改"
+            message: "放弃保存并离开页面"
           })
-        })
-        .catch(action => {
-          if (action === "cancel") {
-            this.$message({
-              type: "info",
-              message: "放弃保存并离开页面"
-            })
-          }
-        })
-    }
+        }
+      })
   }
 }
 </script>

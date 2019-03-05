@@ -69,50 +69,52 @@ el-container.container
       router-view
 </template>
 
-<script>
-export default {
-  name: "global-layout",
-  data() {
-    return {
-      leftWidth:'200px',
-      pageWidth: document.body.clientWidth,
-      isCollapse: false
-    }
-  },
-  computed: {
-    active() {
-      return this.$route.path
-    }
-  },
-  created(){
-    this.resize()
-  },
-  methods: {
-    logout() {
-      this.$message({
-        message: "退出成功",
-        type: "success"
-      })
-    },
-    resize(){
-      this.pageWidth = window.screenWidth = document.body.clientWidth
-        return (() => {
-            if(this.pageWidth <= 960){
-              this.$nextTick(()=>{
-                this.leftWidth = '65px'
-                this.isCollapse = true
-              })
-            }else{
-               this.leftWidth = '200px'
-               this.isCollapse = false
-            }
-        })()
-    }
-  },
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+declare let window: any
+
+@Component({
+  name: 'global-layout',
+  components: {}
+})
+export default class GlobalLayoutComponent extends Vue {
+  leftWidth: string = '200px'
+  pageWidth:number = document.body.clientWidth
+  isCollapse: boolean = false
+
+  logout() {
+    this.$message({
+      message: "退出成功",
+      type: "success"
+    })
+  }
+  resize(){
+    this.pageWidth = window.screenWidth = document.body.clientWidth
+    return (() => {
+      if(this.pageWidth <= 960){
+        this.$nextTick(()=>{
+          this.leftWidth = '65px'
+          this.isCollapse = true
+        })
+      }else{
+          this.leftWidth = '200px'
+          this.isCollapse = false
+      }
+    })()
+  }
+  // computed
+  get active () {
+    return this.$route.path
+  }
+  //hook
   mounted () {
     window.onresize = () => {
         this.resize()
     }
+  }
+  created(){
+    this.resize()
   }
 }
 </script>
