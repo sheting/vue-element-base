@@ -2,14 +2,14 @@
   router-view
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
   name: 'base-layout',
-  data () {
-    return {}
-  },
-  methods: {
-  }
+  components: {}
+})
+export default class BaseLayoutComponent extends Vue {
 }
 </script>
 <style scoped lang="postcss">

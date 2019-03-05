@@ -13,14 +13,14 @@
           router-link(to="/dashboard") 返回首页
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
   name: 'not-found',
-  data () {
-    return {}
-  },
-  methods: {
-  }
+  components: {}
+})
+export default class NotFoundComponent extends Vue {
 }
 </script>
 <style scoped lang="postcss">

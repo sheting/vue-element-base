@@ -59,142 +59,151 @@
           el-button(size="mini", type="danger", @click="deleteRow") 删除
 </template>
 
-<script>
-export default {
-  name: 'tables',
-  data () {
-    return {
-      tableData: [],
-      pending: false,
-      tagFilters: [{ text: `家`, value: `家`, key: `home`}, { text: `公司`, value: `公司`, key: `company`}],
-      form: {
-        name: '',
-        tag: '',
-        date1: '',
-        address1: '',
-        address2: '',
-        address3: ''
-      }
-    }
-  },
-  methods: {
-    getData () {
-      this.pending = true
-      setTimeout(() => {
-        this.pending = false
-        this.tableData = [{
-          date: '2019-02-19',
-          name: '智小链',
-          address1: '北京市链块区链块路1024号',
-          address2: '北京市链块区链块路1024号',
-          address3: '北京市东城区环球贸易中心B座',
-          tag: '家'
-        },
-        {
-          date: '2019-02-18',
-          name: '智小链',
-          address1: '北京市链块区链块路1024号',
-          address2: '北京市链块区链块路1024号',
-          address3: '北京市东城区环球贸易中心B座',
-          tag: '公司'
-        },
-        {
-          date: '2019-02-17',
-          name: '智小链',
-          address1: '北京市链块区链块路1024号',
-          address2: '北京市链块区链块路1024号',
-          address3: '北京市东城区环球贸易中心B座',
-          tag: '公司'
-        },
-        {
-          date: '2019-02-16',
-          name: '智小链',
-          address1: '北京市链块区链块路1024号',
-          address2: '北京市链块区链块路1024号',
-          address3: '北京市东城区环球贸易中心B座',
-          tag: '家'
-        },
-        {
-          date: '2019-02-15',
-          name: '智小链',
-          address1: '北京市链块区链块路1024号',
-          address2: '北京市链块区链块路1024号',
-          address3: '北京市东城区环球贸易中心B座',
-          tag: '公司'
-        },
-        {
-          date: '2019-02-14',
-          name: '智小链',
-          address1: '北京市链块区链块路1024号',
-          address2: '北京市链块区链块路1024号',
-          address3: '北京市东城区环球贸易中心B座',
-          tag: '家'
-        },
-        {
-          date: '2019-02-13',
-          name: '智小链',
-          address1: '北京市链块区链块路1024号',
-          address2: '北京市链块区链块路1024号',
-          address3: '北京市东城区环球贸易中心B座',
-          tag: '公司'
-        },
-        {
-          date: '2019-02-12',
-          name: '智小链',
-          address1: '北京市链块区链块路1024号',
-          address2: '北京市链块区链块路1024号',
-          address3: '北京市东城区环球贸易中心B座',
-          tag: '公司'
-        },
-        {
-          date: '2019-02-11',
-          name: '智小链',
-          address1: '北京市链块区链块路1024号',
-          address2: '北京市链块区链块路1024号',
-          address3: '北京市东城区环球贸易中心B座',
-          tag: '家'
-        }]
-      }, 500)
-    },
-    filterTag (value, row) {
-      return row.tag === value
-    },
-    edit () {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { Form } from 'element-ui'
+interface Item { 
+  date: string,
+  name: string,
+  address1: string,
+  address2: string,
+  address3: string,
+  tag: string
+}
+@Component({
+  name: 'table-component',
+  components: {}
+})
+export default class TableComponent extends Vue {
+  tableData: Item[] = []
+  pending: boolean = false
+  tagFilters: object[] = [{ text: `家`, value: `家`, key: `home`}, { text: `公司`, value: `公司`, key: `company`}]
+  form: Item = {
+    name: '',
+    tag: '',
+    date: '',
+    address1: '',
+    address2: '',
+    address3: ''
+  }
+
+  getData () {
+    this.pending = true
+    setTimeout(() => {
+      this.pending = false
+      this.tableData = [{
+        date: '2019-02-19',
+        name: '智小链',
+        address1: '北京市链块区链块路1024号',
+        address2: '北京市链块区链块路1024号',
+        address3: '北京市东城区环球贸易中心B座',
+        tag: '家'
+      },
+      {
+        date: '2019-02-18',
+        name: '智小链',
+        address1: '北京市链块区链块路1024号',
+        address2: '北京市链块区链块路1024号',
+        address3: '北京市东城区环球贸易中心B座',
+        tag: '公司'
+      },
+      {
+        date: '2019-02-17',
+        name: '智小链',
+        address1: '北京市链块区链块路1024号',
+        address2: '北京市链块区链块路1024号',
+        address3: '北京市东城区环球贸易中心B座',
+        tag: '公司'
+      },
+      {
+        date: '2019-02-16',
+        name: '智小链',
+        address1: '北京市链块区链块路1024号',
+        address2: '北京市链块区链块路1024号',
+        address3: '北京市东城区环球贸易中心B座',
+        tag: '家'
+      },
+      {
+        date: '2019-02-15',
+        name: '智小链',
+        address1: '北京市链块区链块路1024号',
+        address2: '北京市链块区链块路1024号',
+        address3: '北京市东城区环球贸易中心B座',
+        tag: '公司'
+      },
+      {
+        date: '2019-02-14',
+        name: '智小链',
+        address1: '北京市链块区链块路1024号',
+        address2: '北京市链块区链块路1024号',
+        address3: '北京市东城区环球贸易中心B座',
+        tag: '家'
+      },
+      {
+        date: '2019-02-13',
+        name: '智小链',
+        address1: '北京市链块区链块路1024号',
+        address2: '北京市链块区链块路1024号',
+        address3: '北京市东城区环球贸易中心B座',
+        tag: '公司'
+      },
+      {
+        date: '2019-02-12',
+        name: '智小链',
+        address1: '北京市链块区链块路1024号',
+        address2: '北京市链块区链块路1024号',
+        address3: '北京市东城区环球贸易中心B座',
+        tag: '公司'
+      },
+      {
+        date: '2019-02-11',
+        name: '智小链',
+        address1: '北京市链块区链块路1024号',
+        address2: '北京市链块区链块路1024号',
+        address3: '北京市东城区环球贸易中心B座',
+        tag: '家'
+      }]
+    }, 500)
+  }
+  filterTag (value: string, row: Item) {
+    return row.tag === value
+  }
+  edit () {
+    this.$message({
+      message: `编辑成功`,
+      type: 'success'
+    })
+  }
+  deleteRow () {
+    this.$confirm(`此操作将删除该记录, 是否继续?`, `提示`, {
+      confirmButtonText: `确定`,
+      cancelButtonText: `取消`,
+      type: 'warning'
+    })
+    .then(() => {
       this.$message({
-        message: `编辑成功`,
-        type: 'success'
+        type: 'success',
+        message: `删除成功`
       })
-    },
-    deleteRow () {
-      this.$confirm(`此操作将删除该记录, 是否继续?`, `提示`, {
-        confirmButtonText: `确定`,
-        cancelButtonText: `取消`,
-        type: 'warning'
-      })
-      .then(() => {
-        this.$message({
-          type: 'success',
-          message: `删除成功`
-        })
-      })
-      .catch(() => {
-        this.$message({
-          type: 'info',
-          message: `已取消删除`
-        })
-      })
-    },
-    doSearch () {
+    })
+    .catch(() => {
       this.$message({
-        message: `查询成功`,
-        type: 'success'
+        type: 'info',
+        message: `已取消删除`
       })
-    },
-    resetForm() {
-      this.$refs.form.resetFields()
-    }
-  },
-  mounted() {
+    })
+  }
+  doSearch () {
+    this.$message({
+      message: `查询成功`,
+      type: 'success'
+    })
+  }
+  resetForm () {
+    (<Form>this.$refs.form).resetFields()
+  }
+
+  mounted () {
     this.getData()
   }
 }

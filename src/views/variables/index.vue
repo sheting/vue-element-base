@@ -21,15 +21,14 @@ el-row(:gutter="20")
 
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-    }
-  },
-  methods: {
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
 
-  }
+@Component({
+  name: 'variable',
+  components: {}
+})
+export default class VariableComponent extends Vue {
 }
 </script>
 <style scoped lang="postcss">

@@ -1,116 +1,111 @@
-<template>
-  <div>
-    <el-tree
+<template lang="pug">
+  div
+    el-tree(
       :data="data2"
       show-checkbox
       default-expand-all
       node-key="id"
       ref="tree"
       highlight-current
-      :props="defaultProps"
-    ></el-tree>
-
-    <div class="buttons">
-      <el-button @click="getCheckedNodes">通过 node 获取</el-button>
-      <el-button @click="getCheckedKeys">通过 key 获取</el-button>
-      <el-button @click="setCheckedNodes">通过 node 设置</el-button>
-      <el-button @click="setCheckedKeys">通过 key 设置</el-button>
-      <el-button @click="resetChecked">清空</el-button>
-    </div>
-  </div>
+      :props="defaultProps")
+    .buttons
+      el-button(@click="getCheckedNodes") 通过 node 获取
+      el-button(@click="getCheckedKeys") 通过 key 获取
+      el-button(@click="setCheckedNodes") 通过 node 设置
+      el-button(@click="setCheckedKeys") 通过 key 设置
+      el-button(@click="resetChecked") 清空
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      data2: [
-        {
-          id: 1,
-          label: "一级 1",
-          children: [
-            {
-              id: 4,
-              label: "二级 1-1",
-              children: [
-                {
-                  id: 9,
-                  label: "三级 1-1-1"
-                },
-                {
-                  id: 10,
-                  label: "三级 1-1-2"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          id: 2,
-          label: "一级 2",
-          children: [
-            {
-              id: 5,
-              label: "二级 2-1"
-            },
-            {
-              id: 6,
-              label: "二级 2-2"
-            }
-          ]
-        },
-        {
-          id: 3,
-          label: "一级 3",
-          children: [
-            {
-              id: 7,
-              label: "二级 3-1"
-            },
-            {
-              id: 8,
-              label: "二级 3-2"
-            }
-          ]
-        }
-      ],
-      defaultProps: {
-        children: "children",
-        label: "label"
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { Tree } from 'element-ui'
+
+@Component({
+  name: 'tree',
+  components: {}
+})
+export default class TreeComponent extends Vue {
+  private data2:object[] = [{
+    id: 1,
+    label: "一级 1",
+    children: [
+      {
+        id: 4,
+        label: "二级 1-1",
+        children: [
+          {
+            id: 9,
+            label: "三级 1-1-1"
+          },
+          {
+            id: 10,
+            label: "三级 1-1-2"
+          }
+        ]
       }
-    }
+    ]
   },
-  methods: {
-    getCheckedNodes() {
-      console.log(this.$refs.tree.getCheckedNodes())
+  {
+    id: 2,
+    label: "一级 2",
+    children: [
+      {
+        id: 5,
+        label: "二级 2-1"
+      },
+      {
+        id: 6,
+        label: "二级 2-2"
+      }
+    ]
+  },
+  {
+    id: 3,
+    label: "一级 3",
+    children: [
+      {
+        id: 7,
+        label: "二级 3-1"
+      },
+      {
+        id: 8,
+        label: "二级 3-2"
+      }
+    ]
+  }]
+  private defaultProps:object = {
+    children: "children",
+    label: "label"
+  }
+
+  getCheckedNodes ():void {
+    console.log((<Tree>this.$refs.tree).getCheckedNodes())
+    // console.log((<any>this.$refs.tree).getCheckedNodes())
+  }
+  getCheckedKeys() {
+    console.log((<Tree>this.$refs.tree).getCheckedKeys())
+  }
+  setCheckedNodes():void {
+    (<Tree>this.$refs.tree).setCheckedNodes([{
+      id: 5,
+      label: "二级 2-1"
     },
-    getCheckedKeys() {
-      console.log(this.$refs.tree.getCheckedKeys())
-    },
-    setCheckedNodes() {
-      this.$refs.tree.setCheckedNodes([
-        {
-          id: 5,
-          label: "二级 2-1"
-        },
-        {
-          id: 9,
-          label: "三级 1-1-1"
-        }
-      ])
-    },
-    setCheckedKeys() {
-      this.$refs.tree.setCheckedKeys([3])
-    },
-    resetChecked() {
-      this.$refs.tree.setCheckedKeys([])
-    }
+    {
+      id: 9,
+      label: "三级 1-1-1"
+    }])
+  }
+  setCheckedKeys() {
+    (<Tree>this.$refs.tree).setCheckedKeys([3])
+  }
+  resetChecked() {
+    (<Tree>this.$refs.tree).setCheckedKeys([])
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 .buttons{
-    margin-top: 15px;
+  margin-top: 15px;
 }
 </style>
