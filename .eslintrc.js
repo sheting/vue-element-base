@@ -1,6 +1,7 @@
 module.exports = {
   "root": true,
   "env": {
+    "browser": true,
     "node": true
   },
   "extends": [
@@ -13,9 +14,6 @@ module.exports = {
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-unused-vars': 0
-  },
-  "parserOptions": {
-    "parser": "babel-eslint"
   },
   parserOptions: {
     parser: '@typescript-eslint/parser'
