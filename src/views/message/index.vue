@@ -11,26 +11,26 @@
 export default {
   name: "message",
   data() {
-    return {};
+    return {}
   },
   methods: {
     success() {
       this.$message({
         message: "添加成功",
         type: "success"
-      });
+      })
     },
     warning() {
       this.$message({
         message: "正在添加中...",
         type: "warning"
-      });
+      })
     },
     danger() {
       this.$message({
         message: "添加失败",
         type: "error"
-      });
+      })
     },
     close() {
       this.$message({
@@ -38,7 +38,7 @@ export default {
         message: "5秒钟后自动关闭，你也可以点击叉号主动关闭",
         type: "info",
         duration: 5000
-      });
+      })
     },
     confirm() {
       this.$confirm(
@@ -54,19 +54,19 @@ export default {
           this.$message({
             type: "info",
             message: "保存修改"
-          });
+          })
         })
         .catch(action => {
           if (action === "cancel") {
             this.$message({
               type: "info",
               message: "放弃保存并离开页面"
-            });
+            })
           }
-        });
+        })
     }
   }
-};
+}
 </script>
 <style scoped lang="postcss">
 </style>
