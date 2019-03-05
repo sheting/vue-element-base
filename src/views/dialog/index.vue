@@ -24,7 +24,7 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class DialogComponent extends Vue {
   dialogVisible: boolean = false
   confirmVisible: boolean = false
-  title:string = "审核申请"
+  title: string = "审核申请"
 }
 </script>
 <style scoped lang="postcss">

@@ -126,7 +126,7 @@ export default class BaseFormComponent extends Vue {
   fileList: object[] = []
 
   submitForm(formName: string) {
-    (<Form>this.$refs[formName]).validate((valid) => {
+    (<Form>this.$refs[formName]).validate((valid: boolean) => {
       if (valid) {
         setTimeout(() => {
           this.$message({
@@ -143,9 +143,9 @@ export default class BaseFormComponent extends Vue {
     })
   }
   resetForm(formName: string) {
-    this.fileList = [];
-    (<Upload>this.$refs.upload).clearFiles();
-    (<Form>this.$refs[formName]).resetFields();
+    this.fileList = []
+    ;(<Upload>this.$refs.upload).clearFiles()
+    ;(<Form>this.$refs[formName]).resetFields()
   }
   handlePreview (file: object) {
     console.log('file preview-----', file)
@@ -163,7 +163,10 @@ export default class BaseFormComponent extends Vue {
     this.fileList = fileList
   }
   handleExceed (files: object[], fileList: object[]) {
-    this.$message.warning(`当前限制选择 ${this.fileParams.limit} 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`)
+    this.$message.warning(`
+      当前限制选择 ${this.fileParams.limit} 个文件，
+      本次选择了 ${files.length} 个文件，
+      共选择了 ${files.length + fileList.length} 个文件`)
   }
   beforeAvatarUpload(file: any) {
     const isJPG = file.type === 'image/jpeg' || file.type === 'image/png'

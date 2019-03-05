@@ -1,6 +1,6 @@
-let util = <any>{
+const util = <any>{
 }
-util.title = function (title: any) {
+util.title = (title: string) => {
     title = title ? title : 'base - 首页'
     window.document.title = title
 }

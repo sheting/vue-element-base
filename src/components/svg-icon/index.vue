@@ -17,7 +17,7 @@ export default class SvgIconComponent extends Vue {
 
   @Prop({ default: '' })
   className!: string
-  
+
   // computed
   get iconName () {
     return `#icon-${this.iconClass}`

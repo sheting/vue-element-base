@@ -25,7 +25,7 @@ import { Tree } from 'element-ui'
   components: {}
 })
 export default class TreeComponent extends Vue {
-  private data2:object[] = [{
+  private data2: object[] = [{
     id: 1,
     label: "一级 1",
     children: [
@@ -73,19 +73,19 @@ export default class TreeComponent extends Vue {
       }
     ]
   }]
-  private defaultProps:object = {
+  private defaultProps: object = {
     children: "children",
     label: "label"
   }
 
-  getCheckedNodes ():void {
+  getCheckedNodes (): void {
     console.log((<Tree>this.$refs.tree).getCheckedNodes())
     // console.log((<any>this.$refs.tree).getCheckedNodes())
   }
   getCheckedKeys() {
     console.log((<Tree>this.$refs.tree).getCheckedKeys())
   }
-  setCheckedNodes():void {
+  setCheckedNodes(): void {
     (<Tree>this.$refs.tree).setCheckedNodes([{
       id: 5,
       label: "二级 2-1"

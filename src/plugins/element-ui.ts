@@ -40,7 +40,7 @@ import {
   CheckboxGroup,
   Checkbox,
   Radio,
-  TimePicker,
+  TimePicker
 } from 'element-ui'
 
 export default {

@@ -4,7 +4,7 @@ const routers = [
     name: 'demo',
     meta: {
       title: '首页',
-      scrollToTop: true,
+      scrollToTop: true
       // requireAuth: true
     },
     component: () => import('@/views/layout/index.vue'),
@@ -97,6 +97,7 @@ const routers = [
             meta: {
               title: 'message',
               // requireAuth: true,
+              noCache: true
             }
           },
           {
@@ -105,6 +106,7 @@ const routers = [
             component: () => import('@/views/variables/index.vue'),
             meta: {
               title: 'variables',
+              // requireAuth: true,
               noCache: true
             }
           },
@@ -114,6 +116,7 @@ const routers = [
             component: () => import('@/views/form/index.vue'),
             meta: {
               title: 'Form',
+              // requireAuth: true,
               noCache: true
             }
           },
@@ -123,6 +126,7 @@ const routers = [
             component: () => import('@/views/tree/index.vue'),
             meta: {
               title: 'tree',
+              // requireAuth: true,
               noCache: true
             }
           }

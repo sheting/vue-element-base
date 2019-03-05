@@ -80,7 +80,7 @@ declare let window: any
 })
 export default class GlobalLayoutComponent extends Vue {
   leftWidth: string = '200px'
-  pageWidth:number = document.body.clientWidth
+  pageWidth: number = document.body.clientWidth
   isCollapse: boolean = false
 
   logout() {
@@ -107,7 +107,7 @@ export default class GlobalLayoutComponent extends Vue {
   get active () {
     return this.$route.path
   }
-  //hook
+  // hook
   mounted () {
     window.onresize = () => {
         this.resize()

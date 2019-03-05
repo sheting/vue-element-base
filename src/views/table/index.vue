@@ -62,7 +62,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { Form } from 'element-ui'
-interface Item { 
+interface Item {
   date: string,
   name: string,
   address1: string,
