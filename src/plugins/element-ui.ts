@@ -34,7 +34,6 @@ import {
   MessageBox,
   Upload,
   Loading,
-  // Scrollbar,
   DatePicker,
   Switch,
   CheckboxGroup,
@@ -78,7 +77,6 @@ export default {
     Vue.use(Col)
     Vue.use(Upload)
     Vue.use(Loading)
-    // Vue.use(Scrollbar)
     Vue.use(DatePicker)
     Vue.use(Switch)
     Vue.use(CheckboxGroup)
