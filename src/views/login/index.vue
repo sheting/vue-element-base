@@ -35,7 +35,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Form } from 'element-ui'
 
 const formRef = () => {
   return {
@@ -61,9 +60,13 @@ export default class LoginComponent extends Vue {
     password: [{ required: true, message: `请输入密码`, trigger: 'change' }]
   }
   pending: boolean = false
+  // ts 无法识别$refs，所以得提前声明
+  $refs!: {
+    loginForm: HTMLFormElement
+  }
 
   doLogin() {
-    (<Form>this.$refs.loginForm).validate((valid: boolean) => {
+    this.$refs.loginForm.validate((valid: boolean) => {
       if (valid) {
         this.pending = true
         setTimeout(() => {

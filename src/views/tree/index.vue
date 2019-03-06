@@ -77,16 +77,19 @@ export default class TreeComponent extends Vue {
     children: "children",
     label: "label"
   }
+  // ts 无法识别$refs，所以得提前声明
+  $refs!: {
+    tree: Tree
+  }
 
   getCheckedNodes (): void {
-    console.log((<Tree>this.$refs.tree).getCheckedNodes())
-    // console.log((<any>this.$refs.tree).getCheckedNodes())
+    console.log(this.$refs.tree.getCheckedNodes())
   }
   getCheckedKeys() {
-    console.log((<Tree>this.$refs.tree).getCheckedKeys())
+    console.log(this.$refs.tree.getCheckedKeys())
   }
   setCheckedNodes(): void {
-    (<Tree>this.$refs.tree).setCheckedNodes([{
+    this.$refs.tree.setCheckedNodes([{
       id: 5,
       label: "二级 2-1"
     },
@@ -96,10 +99,10 @@ export default class TreeComponent extends Vue {
     }])
   }
   setCheckedKeys() {
-    (<Tree>this.$refs.tree).setCheckedKeys([3])
+    this.$refs.tree.setCheckedKeys([3])
   }
   resetChecked() {
-    (<Tree>this.$refs.tree).setCheckedKeys([])
+    this.$refs.tree.setCheckedKeys([])
   }
 }
 </script>

@@ -61,7 +61,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Form } from 'element-ui'
 interface Item {
   date: string,
   name: string,
@@ -86,7 +85,10 @@ export default class TableComponent extends Vue {
     address2: '',
     address3: ''
   }
-
+  // ts 无法识别$refs，所以得提前声明
+  $refs!: {
+    form: HTMLFormElement
+  }
   getData () {
     this.pending = true
     setTimeout(() => {
@@ -200,7 +202,7 @@ export default class TableComponent extends Vue {
     })
   }
   resetForm () {
-    (<Form>this.$refs.form).resetFields()
+    this.$refs.form.resetFields()
   }
 
   mounted () {

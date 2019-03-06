@@ -39,6 +39,7 @@ el-card
         :limit="fileParams.limit"
         :list-type="fileParams.listType"
         :drag="fileParams.drag"
+        :before-upload="beforeUpload"
         :on-preview="handlePreview"
         :on-remove="handleRemove"
         :on-success="handleSuccess"
@@ -62,7 +63,7 @@ el-card
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Form, Upload } from 'element-ui'
+import { Upload } from 'element-ui'
 
 interface Item {
   name: string,
@@ -79,6 +80,11 @@ interface Item {
   components: {}
 })
 export default class BaseFormComponent extends Vue {
+  // ts 无法识别$refs，所以得提前声明
+  $refs!: {
+    initForm: HTMLFormElement,
+    upload: Upload
+  }
   initForm: Item = {
     name: '',
     region: '',
@@ -125,15 +131,15 @@ export default class BaseFormComponent extends Vue {
   }
   fileList: object[] = []
 
-  submitForm(formName: string) {
-    (<Form>this.$refs[formName]).validate((valid: boolean) => {
+  submitForm() {
+    this.$refs.initForm.validate((valid: boolean) => {
       if (valid) {
         setTimeout(() => {
           this.$message({
             message: `提交成功`,
             type: 'success'
           })
-        }, 1500)
+        }, 500)
       } else {
         this.$message({
           message: `请完善信息`,
@@ -141,11 +147,13 @@ export default class BaseFormComponent extends Vue {
         })
       }
     })
+    // upload file
+    this.doUpload()
   }
-  resetForm(formName: string) {
+  resetForm() {
     this.fileList = []
-    ;(<Upload>this.$refs.upload).clearFiles()
-    ;(<Form>this.$refs[formName]).resetFields()
+    this.$refs.upload.clearFiles()
+    this.$refs.initForm.resetFields()
   }
   handlePreview (file: object) {
     console.log('file preview-----', file)
@@ -168,7 +176,7 @@ export default class BaseFormComponent extends Vue {
       本次选择了 ${files.length} 个文件，
       共选择了 ${files.length + fileList.length} 个文件`)
   }
-  beforeAvatarUpload(file: any) {
+  beforeUpload(file: any) {
     const isJPG = file.type === 'image/jpeg' || file.type === 'image/png'
     const isLt2M = file.size / 1024 / 1024 < 2
     if (!isJPG) {
@@ -180,7 +188,7 @@ export default class BaseFormComponent extends Vue {
     return isJPG && isLt2M
   }
   doUpload () {
-    (<Upload>this.$refs.upload).submit()
+    this.$refs.upload.submit()
   }
 }
 </script>
