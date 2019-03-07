@@ -39,7 +39,7 @@ export default class ChartComponent extends Vue {
     const mockBaseLine = []
     for (let i = 0; i < 6; i++) {
       const obj = {
-        year: 2000 + Math.floor(Math.random() * 10),
+        year: 2000 + i,
         value: Math.floor(Math.random() * 10 + 1)
       }
       mockBaseLine.push(obj)
