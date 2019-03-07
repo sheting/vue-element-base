@@ -5,7 +5,7 @@ el-card
       el-card
         div(slot="header")
           span 基础折线图
-        div test
+        base-line
     el-col.chart-item(:span="8")
       el-card
         div(slot="header")
@@ -25,10 +25,11 @@ el-card
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import baseLine from '@/components/charts/base-line.vue'
 
 @Component({
   name: 'chart-component',
-  components: {}
+  components: {baseLine}
 })
 export default class ChartComponent extends Vue {
 }
