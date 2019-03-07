@@ -36,9 +36,9 @@ import baseLine from '@/components/charts/base-line.vue'
 export default class ChartComponent extends Vue {
   private baseLineData: object[] = []
   updateBaseLine () {
-    let mockBaseLine = []
+    const mockBaseLine = []
     for (let i = 0; i < 6; i++) {
-      let obj = {
+      const obj = {
         year: 2000 + Math.floor(Math.random() * 10),
         value: Math.floor(Math.random() * 10 + 1)
       }
