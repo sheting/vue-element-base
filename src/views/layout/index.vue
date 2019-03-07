@@ -27,7 +27,7 @@ el-container.container
         el-submenu(index="/components")
           template(slot="title")
             i.el-icon-menu
-            span components
+            span Components
           el-menu-item-group
             el-menu-item(index="/components/table")
               router-link(tag="li", to="/components/table")
