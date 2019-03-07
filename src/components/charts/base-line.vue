@@ -3,51 +3,27 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import G2 from '@antv/g2'
 @Component({
   name: 'base-line',
   components: {}
 })
 export default class BaseLineComponent extends Vue {
-  data: object[] = [{
-    year: '1991',
-    value: 3
-  }, {
-    year: '1992',
-    value: 4
-  }, {
-    year: '1993',
-    value: 3.5
-  }, {
-    year: '1994',
-    value: 5
-  }, {
-    year: '1995',
-    value: 4.9
-  }, {
-    year: '1996',
-    value: 6
-  }, {
-    year: '1997',
-    value: 7
-  }, {
-    year: '1998',
-    value: 9
-  }, {
-    year: '1999',
-    value: 13
-  }]
+  // prop data
+  @Prop() readonly data!: object[]
   chart: any
-
+  // method
   initChart () {
     this.chart = new G2.Chart({
       container: 'base-line',
       forceFit: true,
-      height: 400
+      height: 400,
+      padding: [ 20, 40, 40, 20 ],
+      animate: true
     })
   }
-  updateChart () {
+  paintChart () {
     this.chart.source(this.data)
     this.chart.scale('value', {
       min: 0
@@ -67,9 +43,18 @@ export default class BaseLineComponent extends Vue {
     })
     this.chart.render()
   }
+  updateChart () {
+    this.chart.changeData(this.data)
+  }
+  // watch
+  @Watch('data')
+  onChangeData (nv: object[], ov: object[]) {
+    if (nv) this.updateChart()
+  }
+  // hook
   mounted () {
     this.initChart()
-    this.updateChart()
+    this.paintChart()
   }
 }
 </script>
