@@ -129,6 +129,16 @@ const routers = [
               // requireAuth: true,
               noCache: true
             }
+          },
+          {
+            path: 'chart',
+            name: 'chart',
+            component: () => import('@/views/chart/index.vue'),
+            meta: {
+              title: 'Chart',
+              // requireAuth: true,
+              noCache: true
+            }
           }
         ]
       }

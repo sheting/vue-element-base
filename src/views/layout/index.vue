@@ -39,8 +39,8 @@ el-container.container
                 span Card
             el-menu-item(index="/components/pagination")
               router-link(tag="li", to="/components/pagination")
-                svg-icon(icon-class="card")
-                span pagination
+                svg-icon(icon-class="pagination")
+                span Pagination
             el-menu-item(index="/components/loading")
               router-link(tag="li", to="/components/loading")
                 svg-icon(icon-class="load")
@@ -55,7 +55,7 @@ el-container.container
                 span Message
             el-menu-item(index="/components/variables")
               router-link(tag="li", to="/components/variables")
-                svg-icon(icon-class="card")
+                svg-icon(icon-class="theme")
                 span Variables
             el-menu-item(index="/components/form")
               router-link(tag="li", to="/components/form")
@@ -63,8 +63,12 @@ el-container.container
                 span Form
             el-menu-item(index="/components/tree")
               router-link(tag="li", to="/components/tree")
-                svg-icon(icon-class="form")
-                span tree
+                svg-icon(icon-class="tree")
+                span Tree
+            el-menu-item(index="/components/chart")
+              router-link(tag="li", to="/components/chart")
+                svg-icon(icon-class="chart")
+                span Chart
     el-main
       router-view
 </template>
