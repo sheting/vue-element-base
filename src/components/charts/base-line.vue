@@ -19,7 +19,7 @@ export default class BaseLineComponent extends Vue {
       container: 'base-line',
       forceFit: true,
       height: 400,
-      padding: [ 20, 40, 40, 20 ],
+      padding: [20, 40, 40, 60],
       animate: true
     })
   }
@@ -32,6 +32,15 @@ export default class BaseLineComponent extends Vue {
     this.chart.scale('value', {
       alias: `平均重量`,
       min: 0
+    })
+    // value 所在轴的配置
+    this.chart.axis('value', {
+      title: `平均重量`,
+      label: {
+        formatter: function formatter(val: any) {
+          return `${val} KG`
+        }
+      }
     })
     this.chart.scale('year', {
       alias: `年份`,
