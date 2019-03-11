@@ -12,7 +12,7 @@ services:
       dockerfile: ./Docker/Dockerfile
       target: dev
       args:
-        DOCKER_REPO: $DOCKER_REPO
+        DOCKER_REPO: $DOCKER_BASE_REPO$DOCKER_BASE_GROUP
     image: $DOCKER_PROJ_NAME.dev
     command: ["-c", "nohup sh cmd/local-start.sh > base-dev.log 2>&1 && sh"]
     ports:
@@ -33,7 +33,7 @@ services:
       dockerfile: ./Docker/Dockerfile
       target: build
       args:
-        DOCKER_REPO: $DOCKER_REPO
+        DOCKER_REPO: $DOCKER_BASE_REPO$DOCKER_BASE_GROUP
     image: $DOCKER_PROJ_NAME.build
     volumes:
        - .:/code
@@ -49,5 +49,5 @@ services:
       dockerfile: ./Docker/Dockerfile
       target: service
       args:
-        DOCKER_REPO: $DOCKER_REPO
-    image: $DOCKER_REPO_PROJ
+        DOCKER_REPO: $DOCKER_BASE_REPO$DOCKER_BASE_GROUP
+    image: $DOCKER_DEPLOY_REPO$DOCKER_DEPLOY_GROUP$DOCKER_PROJ_NAME
