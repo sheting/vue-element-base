@@ -65,10 +65,10 @@ el-container.container
               router-link(tag="li", to="/components/tree")
                 svg-icon(icon-class="tree")
                 span Tree
-            el-menu-item(index="/components/chart")
-              router-link(tag="li", to="/components/chart")
-                svg-icon(icon-class="chart")
-                span Chart
+            //- el-menu-item(index="/components/chart")
+            //-   router-link(tag="li", to="/components/chart")
+            //-     svg-icon(icon-class="chart")
+            //-     span Chart
     el-main
       router-view
 </template>
