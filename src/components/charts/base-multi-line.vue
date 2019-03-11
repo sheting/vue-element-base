@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
-// import G2 from '@antv/g2'
+import G2 from '@antv/g2'
 
 @Component({
   name: 'base-multi-line',
@@ -16,11 +16,11 @@ export default class BaseMultiLineComponent extends Vue {
   chart: any
   // method
   initChart () {
-    // this.chart = new G2.Chart({
-    //   container: 'base-multi-line',
-    //   forceFit: true,
-    //   height: 400
-    // })
+    this.chart = new G2.Chart({
+      container: 'base-multi-line',
+      forceFit: true,
+      height: 400
+    })
   }
   paintChart () {
     // const ds = 'a'

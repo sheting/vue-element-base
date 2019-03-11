@@ -1,1 +1,1 @@
-// declare module '@antv/data-set'
+declare module '@antv/data-set'

@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
-// import G2 from '@antv/g2'
+import G2 from '@antv/g2'
 
 @Component({
   name: 'base-bar',
@@ -16,13 +16,13 @@ export default class BaseBarComponent extends Vue {
   chart: any
   // method
   initChart () {
-    // this.chart = new G2.Chart({
-    //   container: 'base-bar',
-    //   forceFit: true,
-    //   height: 400,
-    //   padding: [20, 20, 30, 90],
-    //   animate: true
-    // })
+    this.chart = new G2.Chart({
+      container: 'base-bar',
+      forceFit: true,
+      height: 400,
+      padding: [20, 20, 30, 90],
+      animate: true
+    })
   }
   paintChart () {
     this.chart.source(this.data, {
