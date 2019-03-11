@@ -5,6 +5,7 @@
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import G2 from '@antv/g2'
+
 @Component({
   name: 'base-bar',
   components: {}

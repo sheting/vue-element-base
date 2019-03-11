@@ -17,6 +17,8 @@ el-card
       el-card
         div(slot="header")
           span 基础柱状图
+          .card-title-action
+            el-button(type="text", @click="updateBaseBar", icon="el-icon-refresh") 刷新
         base-bar(:data="baseBarData")
     el-col.chart-item(:xs="24" :sm="24" :md="12" :lg="12" :xl="8")
       el-card

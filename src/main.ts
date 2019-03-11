@@ -1,8 +1,10 @@
 import Vue from 'vue'
+import DataSet from '@antv/data-set'
 import App from './App.vue'
 import router from '@/permission'
 import Element from '@/plugins/element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// 把svg-icon 注册成全局的组件
 import '@/icons'
 import '../theme/index.css'
 import '@/assets/styles/main.css'
@@ -10,6 +12,7 @@ import '@/assets/styles/main.css'
 Vue.use(Element, {
   size: 'medium'
 })
+Vue.use(DataSet)
 Vue.config.productionTip = false
 
 new Vue({
