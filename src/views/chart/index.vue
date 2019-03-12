@@ -29,6 +29,11 @@ el-card
           .card-title-action
             el-button(type="text", @click="updateBaseStackBar", icon="el-icon-refresh") 刷新
         base-stack-bar(:data="baseStackBarData")
+    el-col.chart-item(:xs="24" :sm="24" :md="12" :lg="12" :xl="8")
+      el-card
+        div(slot="header")
+          span 基础环图
+        base-pie(:data="basePieData")
 </template>
 
 <script lang="ts">
@@ -37,16 +42,18 @@ import baseLine from '@/components/charts/base-line.vue'
 import baseMultiLine from '@/components/charts/base-multi-line.vue'
 import baseBar from '@/components/charts/base-bar.vue'
 import baseStackBar from '@/components/charts/base-stack-bar.vue'
+import basePie from '@/components/charts/base-pie.vue'
 
 @Component({
   name: 'chart-component',
-  components: {baseLine, baseMultiLine, baseBar, baseStackBar}
+  components: {baseLine, baseMultiLine, baseBar, baseStackBar, basePie}
 })
 export default class ChartComponent extends Vue {
   private baseLineData: object[] = []
   private baseBarData: object[] = []
   private baseMultiLineData: object[] = []
   private baseStackBarData: object[] = []
+  private basePieData: object[] = []
 
   updateBaseLine () {
     const mockBaseLine: object[] = []
@@ -99,11 +106,36 @@ export default class ChartComponent extends Vue {
     }
     this.baseStackBarData = mockData.slice(0)
   }
+  updateBasePie () {
+    const mockData: object[] = [{
+      item: '北京',
+      count: 40,
+      percent: 0.4
+    }, {
+      item: '上海',
+      count: 21,
+      percent: 0.21
+    }, {
+      item: '广州',
+      count: 17,
+      percent: 0.17
+    }, {
+      item: '深圳',
+      count: 13,
+      percent: 0.13
+    }, {
+      item: '南昌',
+      count: 9,
+      percent: 0.09
+    }]
+    this.basePieData = mockData.slice(0)
+  }
   beforeMount () {
     this.updateBaseLine()
     this.updateBaseBar()
     this.updateBaseMultiLine()
     this.updateBaseStackBar()
+    this.updateBasePie()
   }
 }
 </script>
