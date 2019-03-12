@@ -20,7 +20,7 @@ export default class BaseBarComponent extends Vue {
       container: 'base-bar',
       forceFit: true,
       height: 400,
-      padding: [20, 20, 30, 90],
+      padding: [20, 20, 80, 80],
       animate: true
     })
   }
@@ -36,10 +36,10 @@ export default class BaseBarComponent extends Vue {
     this.chart.axis('value', {
       label: {
         textStyle: {
-          fill: '#aaaaaa'
+          fill: '#aaa'
         },
-        formatter: function formatter(text: any) {
-          return text.replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
+        formatter: function formatter(text: string) {
+          return text.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         }
       },
       title: {

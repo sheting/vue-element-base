@@ -26,7 +26,9 @@ el-card
       el-card
         div(slot="header")
           span 堆叠柱状图
-        div 堆叠柱状图
+          .card-title-action
+            el-button(type="text", @click="updateBaseStackBar", icon="el-icon-refresh") 刷新
+        base-stack-bar(:data="baseStackBarData")
 </template>
 
 <script lang="ts">
@@ -34,15 +36,17 @@ import { Component, Vue } from 'vue-property-decorator'
 import baseLine from '@/components/charts/base-line.vue'
 import baseMultiLine from '@/components/charts/base-multi-line.vue'
 import baseBar from '@/components/charts/base-bar.vue'
+import baseStackBar from '@/components/charts/base-stack-bar.vue'
 
 @Component({
   name: 'chart-component',
-  components: {baseLine, baseMultiLine, baseBar}
+  components: {baseLine, baseMultiLine, baseBar, baseStackBar}
 })
 export default class ChartComponent extends Vue {
   private baseLineData: object[] = []
   private baseBarData: object[] = []
   private baseMultiLineData: object[] = []
+  private baseStackBarData: object[] = []
 
   updateBaseLine () {
     const mockBaseLine: object[] = []
@@ -80,10 +84,26 @@ export default class ChartComponent extends Vue {
     }
     this.baseMultiLineData = mockData.slice(0)
   }
-  beforeMount() {
+  updateBaseStackBar () {
+    const mockData: object[] = []
+    const names: string[] = ['London', 'Berlin']
+    const months: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
+    for (let i = 0; i < names.length; i++) {
+      const obj: {[key: string]: string | number } = {
+        name: names[i]
+      }
+      for (let j = 0; j < months.length; j++) {
+        obj[months[j]] = Number((Math.random() * 100).toFixed(1))
+      }
+      mockData.push(obj)
+    }
+    this.baseStackBarData = mockData.slice(0)
+  }
+  beforeMount () {
     this.updateBaseLine()
     this.updateBaseBar()
     this.updateBaseMultiLine()
+    this.updateBaseStackBar()
   }
 }
 </script>
