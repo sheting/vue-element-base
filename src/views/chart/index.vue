@@ -34,6 +34,11 @@ el-card
         div(slot="header")
           span 基础环图
         base-pie(:data="basePieData")
+    el-col.chart-item(:xs="24" :sm="24" :md="12" :lg="12" :xl="8")
+      el-card
+        div(slot="header")
+          span 基础环图
+        base-funnel(:data="baseFunnelData")
 </template>
 
 <script lang="ts">
@@ -43,10 +48,11 @@ import baseMultiLine from '@/components/charts/base-multi-line.vue'
 import baseBar from '@/components/charts/base-bar.vue'
 import baseStackBar from '@/components/charts/base-stack-bar.vue'
 import basePie from '@/components/charts/base-pie.vue'
+import baseFunnel from '@/components/charts/base-funnel.vue'
 
 @Component({
   name: 'chart-component',
-  components: {baseLine, baseMultiLine, baseBar, baseStackBar, basePie}
+  components: {baseLine, baseMultiLine, baseBar, baseStackBar, basePie, baseFunnel}
 })
 export default class ChartComponent extends Vue {
   private baseLineData: object[] = []
@@ -54,6 +60,7 @@ export default class ChartComponent extends Vue {
   private baseMultiLineData: object[] = []
   private baseStackBarData: object[] = []
   private basePieData: object[] = []
+  private baseFunnelData: object[] = []
 
   updateBaseLine () {
     const mockBaseLine: object[] = []
@@ -130,12 +137,32 @@ export default class ChartComponent extends Vue {
     }]
     this.basePieData = mockData.slice(0)
   }
+  updateBaseFunnel () {
+    const mockData: object[] = [{
+      action: '浏览网站',
+      pv: 50000
+    }, {
+      action: '放入购物车',
+      pv: 35000
+    }, {
+      action: '生成订单',
+      pv: 25000
+    }, {
+      action: '支付订单',
+      pv: 15000
+    }, {
+      action: '完成交易',
+      pv: 8000
+    }]
+    this.baseFunnelData = mockData.slice(0)
+  }
   beforeMount () {
     this.updateBaseLine()
     this.updateBaseBar()
     this.updateBaseMultiLine()
     this.updateBaseStackBar()
     this.updateBasePie()
+    this.updateBaseFunnel()
   }
 }
 </script>
