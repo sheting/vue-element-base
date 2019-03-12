@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import DataSet from '@antv/data-set'
 import App from './App.vue'
 import router from '@/permission'
 import Element from '@/plugins/element-ui'
@@ -12,7 +11,6 @@ import '@/assets/styles/main.css'
 Vue.use(Element, {
   size: 'medium'
 })
-Vue.use(DataSet)
 Vue.config.productionTip = false
 
 new Vue({
