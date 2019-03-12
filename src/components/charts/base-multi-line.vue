@@ -6,7 +6,8 @@
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import G2 from '@antv/g2'
 // const DataSet = require('@antv/data-set')
-import DataSet from '@antv/data-set'
+// import DataSet from '@antv/data-set'
+import {DataSet} from '@/libs/data-set.js'
 
 @Component({
   name: 'base-multi-line',

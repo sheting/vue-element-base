@@ -26,7 +26,7 @@ el-card
       el-card
         div(slot="header")
           span 堆叠柱状图
-        div test
+        div 堆叠柱状图
 </template>
 
 <script lang="ts">
