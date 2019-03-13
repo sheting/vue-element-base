@@ -9,27 +9,27 @@
             .logo
             .content
               .product-logo
-              p 溯源大数据平台
+              p {{$t('platform.title')}}
           el-col.form-container.height100(:span="10")
             el-form(:model="loginForm", :rules="rules", ref="loginForm")
               el-form-item
-                h4.login-title 欢迎光临
+                h4.login-title {{$t('form.title')}}
               el-form-item(prop="username")
                 el-input.login-input(v-model="loginForm.username")
-                  template(slot="prepend") 用户名：
+                  template(slot="prepend") {{$t('form.username')}}:
               el-form-item(prop="password")
                 el-input.login-input(v-model="loginForm.password" type="password")
-                  template(slot="prepend") 密码：
+                  template(slot="prepend") {{$t('form.password')}}:
               el-form-item.clearfix
-                el-checkbox.remember-pass(label="记住密码" name="loginForm.remember")
-                span.forget-pass 忘记密码？
+                el-checkbox.remember-pass(:label="$t('form.remember')" name="loginForm.remember")
+                span.forget-pass {{$t('form.forgot')}}
               el-form-item
                 el-button.login-btn(
                   type="primary"
                   @click="doLogin"
                   v-loading="pending"
                   element-loading-background='rgba(255, 255, 255, 0.2)'
-                  :disabled="pending") 登录
+                  :disabled="pending") {{$t('form.login')}}
             span.foot 智链ChainNova © 2018 
 </template>
 
