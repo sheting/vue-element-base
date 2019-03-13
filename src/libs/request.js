@@ -2,7 +2,7 @@ import axios from 'axios'
 import { MessageBox } from 'element-ui'
 import store from '@/store'
 
-const api = process.env.VUE_APP_API
+const api = process.env.VUE_APP_MOCK_API
 
 let logoutMessage = () => {
   MessageBox.confirm('你已被登出，可以点击取消并继续留在本页面，或者重新登录！', '提示', {
