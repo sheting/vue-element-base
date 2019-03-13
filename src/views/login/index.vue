@@ -89,6 +89,8 @@ export default {
     }
   },
   mounted() {
+    sessionStorage.removeItem('isLogin')
+    sessionStorage.removeItem('username')
   }
 }
 </script>
