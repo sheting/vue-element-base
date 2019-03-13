@@ -89,10 +89,19 @@ export default {
   },
   methods: {
     logout() {
-      this.$message({
-        message: "退出成功",
-        type: "success"
-      })
+      // 即使logout失败了，也会清空userAuth
+      sessionStorage.removeItem('isLogin')
+      sessionStorage.removeItem('username')
+      this.$store.dispatch('LOGOUT')
+        .then(response => {
+          this.$store.dispatch('SET_USER_INFO')
+          this.logoutMsg('success', '退出成功')
+          this.$router.push('/login')
+        })
+        .catch(err => {
+          this.$store.dispatch('SET_USER_INFO')
+          this.$router.push('/login')
+        })
     },
     resize(){
       this.pageWidth = window.screenWidth = document.body.clientWidth
