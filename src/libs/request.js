@@ -31,12 +31,12 @@ let logoutMessage = () => {
 // create an axios instance
 const service = axios.create({
   baseURL: api, // api 的 base_url
-  timeout: 60000, // request timeout
+  timeout: 5000, // request timeout
   transformResponse: [function (data) {
     // 对 data 进行任意转换处理
     return data
   }],
-  validateStatus: function (status) {
+  validateStatus: function (status) { // http 请求的status
     // 没有权限
     if (status === 401) {
       logoutMessage()

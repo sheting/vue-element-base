@@ -59,7 +59,7 @@ dingtalk:
       __PIPELINE_SRC=$CI_PIPELINE_SOURCE
       __PIPELINE_URL=$CI_PIPELINE_URL
       ./ci/notify.sh
-  when: on_failure
+  when: always
   only:
     - master
     - tags
