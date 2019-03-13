@@ -39,8 +39,8 @@ el-container.container
                 span Card
             el-menu-item(index="/components/pagination")
               router-link(tag="li", to="/components/pagination")
-                svg-icon(icon-class="card")
-                span pagination
+                svg-icon(icon-class="pagination")
+                span Pagination
             el-menu-item(index="/components/loading")
               router-link(tag="li", to="/components/loading")
                 svg-icon(icon-class="load")
@@ -55,7 +55,7 @@ el-container.container
                 span Message
             el-menu-item(index="/components/variables")
               router-link(tag="li", to="/components/variables")
-                svg-icon(icon-class="card")
+                svg-icon(icon-class="theme")
                 span Variables
             el-menu-item(index="/components/form")
               router-link(tag="li", to="/components/form")
@@ -63,8 +63,8 @@ el-container.container
                 span Form
             el-menu-item(index="/components/tree")
               router-link(tag="li", to="/components/tree")
-                svg-icon(icon-class="form")
-                span tree
+                svg-icon(icon-class="tree")
+                span Tree
     el-main
       router-view
 </template>
@@ -89,10 +89,19 @@ export default {
   },
   methods: {
     logout() {
-      this.$message({
-        message: "退出成功",
-        type: "success"
-      })
+      // 即使logout失败了，也会清空userAuth
+      sessionStorage.removeItem('isLogin')
+      sessionStorage.removeItem('username')
+      this.$store.dispatch('LOGOUT')
+        .then(response => {
+          this.$store.dispatch('SET_USER_INFO')
+          this.logoutMsg('success', '退出成功')
+          this.$router.push('/login')
+        })
+        .catch(err => {
+          this.$store.dispatch('SET_USER_INFO')
+          this.$router.push('/login')
+        })
     },
     resize(){
       this.pageWidth = window.screenWidth = document.body.clientWidth

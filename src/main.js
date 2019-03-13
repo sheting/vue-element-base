@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import store from '@/store'
 import router from '@/permission'
 import Element from '@/plugins/element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -15,5 +16,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

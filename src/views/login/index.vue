@@ -14,8 +14,8 @@
             el-form(:model="loginForm", :rules="rules", ref="loginForm")
               el-form-item
                 h4.login-title 欢迎光临
-              el-form-item(prop="name")
-                el-input.login-input(v-model="loginForm.name")
+              el-form-item(prop="username")
+                el-input.login-input(v-model="loginForm.username")
                   template(slot="prepend") 用户名：
               el-form-item(prop="password")
                 el-input.login-input(v-model="loginForm.password" type="password")
@@ -36,7 +36,7 @@
 <script>
 const formRef = () => {
   return {
-    name: '',
+    username: '',
     password: '',
     remember: false
   }
@@ -47,7 +47,7 @@ export default {
     return {
       loginForm: formRef(),
       rules: {
-        name: [{ required: true, message: `请输入用户名`, trigger: 'change' }],
+        username: [{ required: true, message: `请输入用户名`, trigger: 'change' }],
         password: [{ required: true, message: `请输入密码`, trigger: 'change' }]
       },
       // desc: `您需要登录后才能进行操作`,
@@ -56,20 +56,41 @@ export default {
   },
   methods: {
     doLogin() {
-      this.pending = true
-      setTimeout(() => {
-        this.$message({
-          message: `登录成功`,
-          type: 'success'
-        })
-        this.pending = false
-      }, 1000)
-      setTimeout(() => {
-        this.$router.push({ path: '/' })
-      }, 2000)
+      this.$refs.loginForm.validate((valid) => {
+        if (valid && !this.pending) {
+          this.pending = true
+          let payload = Object.assign({}, this.loginForm)
+          this.$store.dispatch('LOGIN', payload)
+            .then(res => {
+              sessionStorage.setItem('isLogin', true)
+              sessionStorage.setItem('username', payload.username)
+              this.$store.dispatch('SET_USER_INFO')
+              this.messageInstance = this.$message({
+                message: `登录成功`,
+                type: 'success',
+                duration: 1500
+              })
+              this.pending = false
+              setTimeout(() => {
+                this.$router.push({ path: '/' })
+              }, 500)
+            })
+            .catch(error => {
+              this.pending = false
+              this.messageInstance = this.$message({
+                message: error.message || error,
+                type: 'danger',
+                duration: 0,
+                showClose: true
+              })
+            })
+        }
+      })
     }
   },
   mounted() {
+    sessionStorage.removeItem('isLogin')
+    sessionStorage.removeItem('username')
   }
 }
 </script>

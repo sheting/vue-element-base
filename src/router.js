@@ -36,7 +36,7 @@ const routers = [
             component: () => import('@/views/table'),
             name: 'table',
             meta: {
-              title: 'tables',
+              title: 'Tables',
               // requireAuth: true,
               noCache: true
             }
@@ -46,7 +46,7 @@ const routers = [
             component: () => import('@/views/card'),
             name: 'card',
             meta: {
-              title: 'cards',
+              title: 'Cards',
               // requireAuth: true,
               noCache: true
             }
@@ -56,7 +56,7 @@ const routers = [
             component: () => import('@/views/pagination'),
             name: 'pagination',
             meta: {
-              title: 'pagination',
+              title: 'Pagination',
               noCache: true
             }
           },
@@ -75,7 +75,7 @@ const routers = [
             component: () => import('@/views/loading'),
             name: 'loading',
             meta: {
-              title: 'loading',
+              title: 'Loading',
               // requireAuth: true,
               noCache: true
             }
@@ -85,7 +85,7 @@ const routers = [
             component: () => import('@/views/dialog'),
             name: 'dialog',
             meta: {
-              title: 'dialog',
+              title: 'Dialog',
               // requireAuth: true,
               noCache: true
             }
@@ -95,7 +95,7 @@ const routers = [
             component: () => import('@/views/message'),
             name: 'message',
             meta: {
-              title: 'message',
+              title: 'Message',
               // requireAuth: true,
             }
           },
@@ -104,7 +104,7 @@ const routers = [
             name: 'variables',
             component: () => import('@/views/variables'),
             meta: {
-              title: 'variables',
+              title: 'Variables',
               noCache: true
             }
           },
@@ -122,7 +122,7 @@ const routers = [
             name: 'tree',
             component: () => import('@/views/tree'),
             meta: {
-              title: 'tree',
+              title: 'Tree',
               noCache: true
             }
           }
