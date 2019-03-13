@@ -18,3 +18,4 @@ FROM ${DOCKER_REPO}static-service as service
 
 COPY ./Docker/nginx/prod.conf /etc/nginx/conf.d/default.conf
 COPY ./dist/ /srv/web-app
+COPY ./mock/ /srv/web-app/mock
