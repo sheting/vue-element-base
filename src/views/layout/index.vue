@@ -4,7 +4,7 @@ el-container.container
     .logo
     el-dropdown
       span.el-dropdown-link
-        span.mr8.ml8 智小链
+        span.mr8.ml8 {{username}}
         i.el-icon-arrow-down.el-icon--right
       el-dropdown-menu(slot="dropdown")
         el-dropdown-item
@@ -23,7 +23,7 @@ el-container.container
         el-menu-item(index="/404")
           router-link(tag="li", to="/404")
             svg-icon(icon-class="404")
-            span {{$t('sidebar.404')}}
+            span {{$t('sidebar.page404')}}
         el-submenu(index="/components")
           template(slot="title")
             i.el-icon-menu
@@ -80,7 +80,8 @@ export default {
     return {
       leftWidth:'200px',
       pageWidth: document.body.clientWidth,
-      isCollapse: false
+      isCollapse: false,
+      username: ''
     }
   },
   computed: {
@@ -123,8 +124,9 @@ export default {
     }
   },
   mounted () {
+    this.username = sessionStorage.getItem('username') || '智小链'
     window.onresize = () => {
-        this.resize()
+      this.resize()
     }
   }
 }

@@ -14,7 +14,7 @@ export default {
   sidebar: {
     dashboard: '首页',
     login: '登录页',
-    404: '404页',
+    page404: '404',
     components: '组件',
     table: '表格',
     card: '卡片',
@@ -26,5 +26,10 @@ export default {
     tree: '树形控件',
     variables: '主题',
     i18n: 'i18n'
+  },
+  errorPage: {
+    title404: '页面没找到',
+    desc404: '糟糕，这个页面可能去智链星球旅游了...',
+    action: '首页'
   }
 }

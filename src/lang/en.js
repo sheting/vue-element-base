@@ -14,7 +14,7 @@ export default {
   sidebar: {
     dashboard: 'Dashboard',
     login: 'Login',
-    404: '404',
+    page404: '404',
     components: 'Components',
     table: 'Table',
     card: 'Card',
@@ -26,5 +26,10 @@ export default {
     tree: 'Tree',
     variables: 'Variables',
     i18n: 'I18n'
+  },
+  errorPage: {
+    title404: 'Page Not Found',
+    desc404: 'Oops, The page you\'re looking for cannot be found.',
+    action: 'home'
   }
 }
