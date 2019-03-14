@@ -65,6 +65,10 @@ el-container.container
               router-link(tag="li", to="/components/tree")
                 svg-icon(icon-class="tree")
                 span Tree
+            el-menu-item(index="/components/i8n")
+              router-link(tag="li", to="/components/i18n")
+                svg-icon(icon-class="international")
+                span {{$t('sidebar.i18n')}}
     el-main
       router-view
 </template>

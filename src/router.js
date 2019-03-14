@@ -97,6 +97,7 @@ const routers = [
             meta: {
               title: 'Message',
               // requireAuth: true,
+              noCache: true
             }
           },
           {
@@ -105,6 +106,7 @@ const routers = [
             component: () => import('@/views/variables'),
             meta: {
               title: 'Variables',
+              // requireAuth: true,
               noCache: true
             }
           },
@@ -114,6 +116,7 @@ const routers = [
             component: () => import('@/views/form'),
             meta: {
               title: 'Form',
+              // requireAuth: true,
               noCache: true
             }
           },
@@ -123,6 +126,17 @@ const routers = [
             component: () => import('@/views/tree'),
             meta: {
               title: 'Tree',
+              // requireAuth: true,
+              noCache: true
+            }
+          },
+          {
+            path: 'i18n',
+            name: 'i18n',
+            component: () => import('@/views/i18n'),
+            meta: {
+              title: 'i18n',
+              // requireAuth: true,
               noCache: true
             }
           }

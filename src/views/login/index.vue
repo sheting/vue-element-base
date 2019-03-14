@@ -167,8 +167,8 @@ export default {
           border-radius: 10px;
           background-color: #005aff;
           font-size: 24px;
-          letter-spacing: 25px;
-          text-indent: 25px;
+          /* letter-spacing: 25px; */
+          /* text-indent: 25px; */
           box-shadow: 0 3px 15px 0 rgb(0, 0, 0, 0.4);
           border: none;
         }
