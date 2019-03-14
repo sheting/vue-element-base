@@ -39,5 +39,11 @@ export default {
   validate: {
     username: '请输入用户名',
     password: '请输入密码'
+  },
+  lang: {
+    title: '切换语言',
+    zh: '简体中文',
+    en: '英文',
+    desc: '本项目国际化基于vue-i18n'
   }
 }

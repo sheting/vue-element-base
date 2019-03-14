@@ -5,13 +5,13 @@ el-row(:gutter="20")
       div.clearfix(slot="header")
         span.title
           svg-icon(icon-class="international")
-          span.ml10 切换语言
+          span.ml10 {{$t('lang.title')}}
       div
         el-radio-group(v-model="lang" size="small", @change="langChange")
-          el-radio(label="zh" border) 简体中文
-          el-radio(label="en" border) English
+          el-radio(label="zh" border) {{$t('lang.zh')}}
+          el-radio(label="en" border) {{$t('lang.en')}}
         .mt20
-          el-alert(type="info", title="本项目国际化基于vue-i18n")
+          el-alert(type="info", :title="$t('lang.desc')", :closable="false")
 </template>
 
 <script>

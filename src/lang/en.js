@@ -39,5 +39,11 @@ export default {
   validate: {
     username: 'please input username',
     password: 'please input password'
+  },
+  lang: {
+    title: 'Switch Language',
+    zh: 'Chinese',
+    en: 'English',
+    desc: 'Based on vue-i18n'
   }
 }
