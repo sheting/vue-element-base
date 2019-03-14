@@ -31,5 +31,13 @@ export default {
     title404: '页面没找到',
     desc404: '糟糕，这个页面可能去智链星球旅游了...',
     action: '首页'
+  },
+  message:{
+    logoutSuccess: '退出成功',
+    loginSuccess: '登录成功'
+  },
+  validate: {
+    username: '请输入用户名',
+    password: '请输入密码'
   }
 }

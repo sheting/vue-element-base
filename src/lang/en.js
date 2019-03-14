@@ -31,5 +31,13 @@ export default {
     title404: 'Page Not Found',
     desc404: 'Oops, The page you\'re looking for cannot be found.',
     action: 'home'
+  },
+  message:{
+    logoutSuccess: 'logout success',
+    loginSuccess: 'login success'
+  },
+  validate: {
+    username: 'please input username',
+    password: 'please input password'
   }
 }

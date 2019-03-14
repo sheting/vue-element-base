@@ -100,7 +100,11 @@ export default {
       this.$store.dispatch('LOGOUT')
         .then(response => {
           this.$store.dispatch('SET_USER_INFO')
-          this.logoutMsg('success', '退出成功')
+          this.$message({
+            message: this.$t('message.logoutSuccess'),
+            type: 'success',
+            duration: 1500
+          })
           this.$router.push('/login')
         })
         .catch(err => {

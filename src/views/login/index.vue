@@ -47,8 +47,8 @@ export default {
     return {
       loginForm: formRef(),
       rules: {
-        username: [{ required: true, message: `请输入用户名`, trigger: 'change' }],
-        password: [{ required: true, message: `请输入密码`, trigger: 'change' }]
+        username: [{ required: true, message: this.$t('validate.username'), trigger: 'change' }],
+        password: [{ required: true, message: this.$t('validate.password'), trigger: 'change' }]
       },
       // desc: `您需要登录后才能进行操作`,
       pending: false
@@ -66,7 +66,7 @@ export default {
               sessionStorage.setItem('username', payload.username)
               this.$store.dispatch('SET_USER_INFO')
               this.messageInstance = this.$message({
-                message: `登录成功`,
+                message: this.$t('message.loginSuccess'),
                 type: 'success',
                 duration: 1500
               })
