@@ -25,7 +25,7 @@ export default {
     form: '表单',
     tree: '树形控件',
     variables: '主题',
-    i18n: 'i18n'
+    i18n: '国际化'
   },
   errorPage: {
     title404: '页面没找到',
@@ -45,5 +45,21 @@ export default {
     zh: '简体中文',
     en: '英文',
     desc: '本项目国际化基于vue-i18n'
+  },
+  route: {
+    dashboard: '首页',
+    components: '组件',
+    tables: '表格',
+    cards: '卡片',
+    pagination: '分页',
+    loading: '加载',
+    dialog: '对话框',
+    message: '消息提示',
+    variables: '主题',
+    form: '表单',
+    tree: '树形控件',
+    i18n: '国际化',
+    login: '登录',
+    page404: '404'
   }
 }

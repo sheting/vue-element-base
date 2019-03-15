@@ -45,5 +45,21 @@ export default {
     zh: 'Chinese',
     en: 'English',
     desc: 'Based on vue-i18n'
+  },
+  route: {
+    dashboard: 'Dashboard',
+    components: 'Components',
+    tables: 'Tables',
+    cards: 'Cards',
+    pagination: 'Pagination',
+    loading: 'Loading',
+    dialog: 'Dialog',
+    message: 'Message',
+    variables: 'Variables',
+    form: 'Form',
+    tree: 'Tree',
+    i18n: 'I18n',
+    login: 'Login',
+    page404: '404'
   }
 }

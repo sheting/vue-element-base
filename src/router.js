@@ -3,9 +3,7 @@ const routers = [
     path: '/',
     name: 'demo',
     meta: {
-      title: '首页',
-      scrollToTop: true,
-      // requireAuth: true
+      scrollToTop: true
     },
     component: () => import('@/views/layout'),
     redirect: '/dashboard',
@@ -15,7 +13,7 @@ const routers = [
         component: () => import('@/views/dashboard'),
         name: 'dashboard',
         meta: {
-          title: 'Dashboard',
+          title: 'dashboard',
           // requireAuth: true,
           noCache: true
         }
@@ -26,7 +24,7 @@ const routers = [
         name: 'components',
         redirect: '/components/table',
         meta: {
-          title: 'Components',
+          title: 'components',
           // requireAuth: true,
           noCache: true
         },
@@ -36,7 +34,7 @@ const routers = [
             component: () => import('@/views/table'),
             name: 'table',
             meta: {
-              title: 'Tables',
+              title: 'tables',
               // requireAuth: true,
               noCache: true
             }
@@ -46,7 +44,7 @@ const routers = [
             component: () => import('@/views/card'),
             name: 'card',
             meta: {
-              title: 'Cards',
+              title: 'cards',
               // requireAuth: true,
               noCache: true
             }
@@ -56,7 +54,7 @@ const routers = [
             component: () => import('@/views/pagination'),
             name: 'pagination',
             meta: {
-              title: 'Pagination',
+              title: 'pagination',
               noCache: true
             }
           },
@@ -65,7 +63,7 @@ const routers = [
             component: () => import('@/views/card'),
             name: 'card',
             meta: {
-              title: 'Cards',
+              title: 'cards',
               // requireAuth: true,
               noCache: true
             }
@@ -75,7 +73,7 @@ const routers = [
             component: () => import('@/views/loading'),
             name: 'loading',
             meta: {
-              title: 'Loading',
+              title: 'loading',
               // requireAuth: true,
               noCache: true
             }
@@ -85,7 +83,7 @@ const routers = [
             component: () => import('@/views/dialog'),
             name: 'dialog',
             meta: {
-              title: 'Dialog',
+              title: 'dialog',
               // requireAuth: true,
               noCache: true
             }
@@ -95,7 +93,7 @@ const routers = [
             component: () => import('@/views/message'),
             name: 'message',
             meta: {
-              title: 'Message',
+              title: 'message',
               // requireAuth: true,
               noCache: true
             }
@@ -105,7 +103,7 @@ const routers = [
             name: 'variables',
             component: () => import('@/views/variables'),
             meta: {
-              title: 'Variables',
+              title: 'variables',
               // requireAuth: true,
               noCache: true
             }
@@ -115,7 +113,7 @@ const routers = [
             name: 'form',
             component: () => import('@/views/form'),
             meta: {
-              title: 'Form',
+              title: 'form',
               // requireAuth: true,
               noCache: true
             }
@@ -125,7 +123,7 @@ const routers = [
             name: 'tree',
             component: () => import('@/views/tree'),
             meta: {
-              title: 'Tree',
+              title: 'tree',
               // requireAuth: true,
               noCache: true
             }
@@ -149,14 +147,14 @@ const routers = [
     alias: '/signin',
     name: 'login',
     component: () => import('@/views/login'),
-    meta: { title: `登录` }
+    meta: { title: 'login' }
   },
   {
     path: '/404',
     alias: '/not-found',
     name: '404',
     component: () => import('@/views/404'),
-    meta: { title: `Error - 404` }
+    meta: { title: 'page404' }
   }
 ]
 
