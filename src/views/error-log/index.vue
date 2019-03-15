@@ -9,12 +9,28 @@
     div(slot="title")
       span {{$t('log.title')}}
     div.scroll-content
-      p aa
+      el-table(:data="logs", border)
+        el-table-column(label="Message")
+          template(slot-scope="scope")
+            div
+              span Msg:
+              el-tag(type="danger") {{scope.row.err.message}}
+            div
+              span Info:
+              el-tag(type="warning") {{scope.row.vm.$vnode.tag}} error in {{scope.row.info}}
+            div
+              span Url:
+              el-tag(type="success") {{scope.row.url}}
+        el-table-column(label="Stack")
+          template(slot-scope="scope")
+            | {{scope.row.err.stack}}
     span.dialog-footer(slot="footer")
       el-button(type="primary", @click="dialogVisible = false", plain) 关闭
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   name: "error-log",
   data() {
@@ -22,9 +38,8 @@ export default {
       dialogVisible: false
     }
   },
-  methods: {
-  },
-  mounted () {
+  computed: {
+    ...mapGetters({logs: 'GET_ERROR_LOGS'})
   }
 }
 </script>
