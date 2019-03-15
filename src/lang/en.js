@@ -48,6 +48,8 @@ export default {
     errorLog: 'Error Log'
   },
   log: {
-    title: 'Error Log'
+    title: 'Error Log',
+    pageTitle: '请点击 Header 右上角bug小图标',
+    desc: 'Vue 官网提供了一个方法来捕获处理异常，你可以在其中进行错误处理或者异常上报。'
   }
 }

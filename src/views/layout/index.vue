@@ -80,7 +80,7 @@ el-container.container
 </template>
 
 <script>
-import errorLog from "@/views/error-log"
+import errorLog from "@/components/error-log"
 
 export default {
   name: "global-layout",
