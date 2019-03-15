@@ -1,6 +1,7 @@
 :root {
+  --colorWhite: #fff;
+  --colorBlack: #000;
   --bgColor: #fafafa;
-  --textColor: #fff;
   --textHintColor: #999;
   --blue:#324157;
   --light-blue:#3A71A8;
@@ -11,6 +12,8 @@
   --yellow:#FEC171;
   --panGreen: #30B08F;
   --primary: #4b4ba3;
+  --gray: #909399;
+  --black1: #333;
   --borderColor: #ebeef5;
 
   --topBgColor: #4b4ba3;

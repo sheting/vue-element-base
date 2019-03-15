@@ -23,8 +23,9 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
+@import 'assets/styles/variable.css';
 .mt10{margin-top: 10px;}
 .error-log{
-  height: calc(100vh - 102px); padding: 20px; background-color: #fff;
+  height: calc(100vh - 102px); padding: 20px; background-color: var(--colorWhite);
 }
 </style>
