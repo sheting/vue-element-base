@@ -2,13 +2,16 @@
 el-container.container
   el-header.header
     .logo
-    el-dropdown
-      span.el-dropdown-link
-        span.mr8.ml8 {{username}}
-        i.el-icon-arrow-down.el-icon--right
-      el-dropdown-menu(slot="dropdown")
-        el-dropdown-item
-          span(@click="logout") {{$t('platform.logout')}}
+    .right-menu
+      .bug-action
+        svg-icon(icon-class="bug")
+      el-dropdown
+        span.el-dropdown-link
+          span.mr8.ml8 {{username}}
+          i.el-icon-arrow-down.el-icon--right
+        el-dropdown-menu(slot="dropdown")
+          el-dropdown-item
+            span(@click="logout") {{$t('platform.logout')}}
   el-container.sidebar
     el-aside(:width="leftWidth" ref='leftNav')
       el-menu(:default-active="active", :collapse="isCollapse")
@@ -185,5 +188,9 @@ export default {
     height: 100%;
     background-color: var(--sidebarBgColor);
   }
+}
+.bug-action{
+  width: 24px;height: 24px;display: inline-block; margin: 0px 20px; font-size: 14px;
+  text-align: center;background-color: #f56c6c;color: #fff;border-radius: 2px;
 }
 </style>
