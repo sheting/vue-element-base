@@ -6,11 +6,10 @@
           svg-icon(icon-class="404-page", class-name="not-found-icon")
           .title-desc
             .desc-404 404
-            .desc-not-found Page Not found
-        .content
-          | Oops, The page you're looking for cannot be found.
+            .desc-not-found {{$t('errorPage.title404')}}
+        .content {{$t('errorPage.desc404')}}
         .footer
-          router-link(to="/dashboard") 返回首页
+          router-link(to="/dashboard") {{$t('errorPage.action')}}
 </template>
 
 <script>
