@@ -8,6 +8,7 @@ import '@/icons'
 import '../theme/index.css'
 import '@/assets/styles/main.css'
 import i18n from '@/lang'
+import '@/error-log'
 
 Vue.use(Element, {
   size: 'medium',
