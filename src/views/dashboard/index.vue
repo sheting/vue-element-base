@@ -41,31 +41,25 @@ div
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: "dashboard",
   data() {
     return {
-      statics: [
-        {
-          text: "统计数据",
-          num: 12
-        },
-        {
-          text: "审核数据",
-          num: 256
-        },
-        {
-          text: "上报规则",
-          num: 39
-        },
-        {
-          text: "人员数据",
-          num: 9
-        }
-      ]
     }
   },
-  methods: {}
+  computed: {
+    ...mapGetters({statics: 'GET_STATICS'})
+  },
+  methods: {
+    getStatic () {
+      this.$store.dispatch('GET_STATICS')
+    }
+  },
+  mounted () {
+    this.getStatic()
+  }
 }
 </script>
 <style scoped lang="postcss">
