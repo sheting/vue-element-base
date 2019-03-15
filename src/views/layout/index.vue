@@ -3,8 +3,7 @@ el-container.container
   el-header.header
     .logo
     .right-menu
-      .bug-action
-        svg-icon(icon-class="bug")
+      error-log
       el-dropdown
         span.el-dropdown-link
           span.mr8.ml8 {{username}}
@@ -81,8 +80,11 @@ el-container.container
 </template>
 
 <script>
+import errorLog from "@/views/error-log"
+
 export default {
   name: "global-layout",
+  components: {errorLog},
   data() {
     return {
       leftWidth:'200px',
@@ -188,9 +190,5 @@ export default {
     height: 100%;
     background-color: var(--sidebarBgColor);
   }
-}
-.bug-action{
-  width: 24px;height: 24px;display: inline-block; margin: 0px 20px; font-size: 14px;
-  text-align: center;background-color: #f56c6c;color: #fff;border-radius: 2px;
 }
 </style>

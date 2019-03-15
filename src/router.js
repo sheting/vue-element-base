@@ -59,16 +59,6 @@ const routers = [
             }
           },
           {
-            path: 'card',
-            component: () => import('@/views/card'),
-            name: 'card',
-            meta: {
-              title: 'card',
-              // requireAuth: true,
-              noCache: true
-            }
-          },
-          {
             path: 'loading',
             component: () => import('@/views/loading'),
             name: 'loading',

@@ -46,5 +46,8 @@ export default {
     login: '登录',
     page404: '404',
     errorLog: '错误日志'
+  },
+  log: {
+    title: '错误日志'
   }
 }

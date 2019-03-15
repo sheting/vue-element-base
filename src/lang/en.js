@@ -46,5 +46,8 @@ export default {
     login: 'Login',
     page404: '404',
     errorLog: 'Error Log'
+  },
+  log: {
+    title: 'Error Log'
   }
 }
