@@ -44,9 +44,11 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
+@import "assets/styles/variable.css";
+
 .inline-block{display: inline-block;}
 .bug-action{
   width: 24px;height: 24px;display: inline-block; margin: 0px 20px; font-size: 14px;
-  text-align: center;background-color: #f56c6c;color: #fff;border-radius: 2px;cursor: pointer;
+  text-align: center;background-color: var(--orange);color: var(--colorWhite);border-radius: 2px;cursor: pointer;
 }
 </style>

@@ -58,12 +58,12 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
+@import "assets/styles/variable.css";
+
 .box-card {
   margin-top: 20px;
   width: 600px;
   height: 400px;
-  border: 2px solid #999;
-}
-.el-loading-spinner i.loading {
+  border: 2px solid var(--borderColor);
 }
 </style>

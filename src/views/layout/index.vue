@@ -145,12 +145,11 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
-:root {
-  --sidebarBgColor: #fc0;
-}
+@import "assets/styles/variable.css";
+
 .container {
   height: 100vh;
-  background-color: #f5f5f5;
+  background-color: var(--bgColor);
 }
 .logo {
   margin-top: 5px;
@@ -169,7 +168,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   background: var(--topBgColor);
-  color: #fff;
+  color: var(--colorWhite);
   position: fixed;
   left: 0;
   right: 0;
@@ -180,7 +179,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    color: #fff;
+    color: var(--colorWhite);
     font-weight: 500;
   }
 }
