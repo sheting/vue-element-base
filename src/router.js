@@ -34,7 +34,7 @@ const routers = [
             component: () => import('@/views/table'),
             name: 'table',
             meta: {
-              title: 'tables',
+              title: 'table',
               // requireAuth: true,
               noCache: true
             }
@@ -44,7 +44,7 @@ const routers = [
             component: () => import('@/views/card'),
             name: 'card',
             meta: {
-              title: 'cards',
+              title: 'card',
               // requireAuth: true,
               noCache: true
             }
@@ -55,16 +55,6 @@ const routers = [
             name: 'pagination',
             meta: {
               title: 'pagination',
-              noCache: true
-            }
-          },
-          {
-            path: 'card',
-            component: () => import('@/views/card'),
-            name: 'card',
-            meta: {
-              title: 'cards',
-              // requireAuth: true,
               noCache: true
             }
           },
@@ -134,6 +124,16 @@ const routers = [
             component: () => import('@/views/i18n'),
             meta: {
               title: 'i18n',
+              // requireAuth: true,
+              noCache: true
+            }
+          },
+          {
+            path: 'errorLog',
+            name: 'errorLog',
+            component: () => import('@/views/error-log'),
+            meta: {
+              title: 'errorLog',
               // requireAuth: true,
               noCache: true
             }

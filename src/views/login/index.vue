@@ -95,6 +95,8 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
+@import "assets/styles/variable.css";
+
 .height100 {
   height: 100%;
 }
@@ -158,18 +160,18 @@ export default {
             position: absolute;
             bottom: -35px;
             left: 5px;
-            background-color: rgb(167, 175, 190);
+            background-color: var(--gray);
           }
         }
         & .login-btn {
           width: 100%;
           height: 60px;
           border-radius: 10px;
-          background-color: #005aff;
+          background-color: var(--primary);
           font-size: 24px;
           /* letter-spacing: 25px; */
           /* text-indent: 25px; */
-          box-shadow: 0 3px 15px 0 rgb(0, 0, 0, 0.4);
+          /* box-shadow: 0 3px 15px 0 rgb(0, 0, 0, 0.4); */
           border: none;
         }
         & .remember-pass {

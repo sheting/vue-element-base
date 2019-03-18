@@ -34,7 +34,9 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
+@import "assets/styles/variable.css";
+
 .mt20{margin-top: 20px;}
 .ml10{margin-left: 10px;}
-.title{color: #676767;}
+.title{color: var(--gray1);}
 </style>

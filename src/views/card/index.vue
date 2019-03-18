@@ -58,6 +58,7 @@ export default {
 }
 </script>
 <style scoped lang="postcss">
+@import "assets/styles/variable.css";
 .box-card {
   max-width: 500px;
   height: 350px;
@@ -73,7 +74,7 @@ export default {
     margin-right: 8px;
   }
   & .title {
-    color: #333;
+    color: var(--black1);
   }
   & .item {
     margin-bottom: 10px;
@@ -87,6 +88,6 @@ export default {
   width: 20px;
   text-align: center;
   font-size: 18px;
-  color: #909399;
+  color: var(--gray);
 }
 </style>
