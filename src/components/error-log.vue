@@ -63,7 +63,7 @@ export default {
   computed: {
     ...mapGetters({initLogs: 'GET_ERROR_LOGS'}),
     hasLog () {
-      return this.initLogs & this.initLogs.length ? false : true
+      return this.initLogs && this.initLogs.length ? true : false
     },
     vueLogs () {
       let logs = []
