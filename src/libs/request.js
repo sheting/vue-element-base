@@ -77,6 +77,14 @@ service.interceptors.response.use(
     if (code >= 200 && code < 300) {
       return data
     } else {
+      let {status, responseURL} = response.request
+      let res = response.data
+      store.dispatch('ADD_ERROR_LOGS', {
+        type: 'api',
+        res,
+        status,
+        responseURL
+      })
       // 没有权限
       if (code === 401) {
         logoutMessage()

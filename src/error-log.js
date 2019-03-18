@@ -5,6 +5,7 @@ import store from '@/store'
 Vue.config.errorHandler = function(err, vm, info, a) {
   Vue.nextTick(() => {
     store.dispatch('ADD_ERROR_LOGS', {
+      type: 'vue',
       err,
       vm,
       info,
