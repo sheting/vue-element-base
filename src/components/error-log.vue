@@ -1,7 +1,8 @@
 <template lang="pug">
-.inline-block
-  .bug-action(@click="dialogVisible = true")
-    svg-icon(icon-class="bug")
+.error-log-action
+  el-badge(:is-dot="hasLog")
+    el-button.bug-button(type="warning", @click="dialogVisible = true")
+      svg-icon(icon-class="bug")
   el-dialog(
     :visible.sync="dialogVisible"
     width="60%"
@@ -39,17 +40,19 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({logs: 'GET_ERROR_LOGS'})
+    ...mapGetters({logs: 'GET_ERROR_LOGS'}),
+    hasLog () {
+      return this.logs & this.logs.length ? false : true
+    }
   }
 }
 </script>
 <style scoped lang="postcss">
 @import "assets/styles/variable.css";
 
-.inline-block{display: inline-block;}
-.bug-action{
-  width: 24px;height: 24px;display: inline-block; margin: 0px 20px; font-size: 14px;
-  text-align: center;background-color: var(--orange);color: var(--colorWhite);border-radius: 2px;cursor: pointer;
+.error-log-action{display: inline-block;margin-left: 8px;margin-right: 8px;}
+.bug-button{
+  width: 14px;height: 14px;padding: 5px;box-sizing: content-box;
 }
 .log-label{
   margin-bottom: 8px;

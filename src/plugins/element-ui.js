@@ -41,6 +41,7 @@ import {
   Checkbox,
   Radio,
   TimePicker,
+  Badge
 } from 'element-ui'
 
 export default {
@@ -85,6 +86,7 @@ export default {
     Vue.use(Checkbox)
     Vue.use(Radio)
     Vue.use(TimePicker)
+    Vue.use(Badge)
     Vue.prototype.$message = Message
     Vue.prototype.$alert = MessageBox.alert
     Vue.prototype.$confirm = MessageBox.confirm
