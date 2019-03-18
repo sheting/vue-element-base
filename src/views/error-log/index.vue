@@ -19,6 +19,9 @@ export default {
       title: this.$t('log.pageTitle'),
       desc: this.$t('log.desc')
     }
+  },
+  mounted () {
+    this.b = b
   }
 }
 </script>

@@ -4,7 +4,7 @@
     svg-icon(icon-class="bug")
   el-dialog(
     :visible.sync="dialogVisible"
-    width="40%"
+    width="60%"
     append-to-body)
     div(slot="title")
       span {{$t('log.title')}}
@@ -12,14 +12,14 @@
       el-table(:data="logs", border)
         el-table-column(label="Message")
           template(slot-scope="scope")
-            div
-              span Msg:
+            div.log-label
+              span.log-msg-label Msg:
               el-tag(type="danger") {{scope.row.err.message}}
-            div
-              span Info:
+            div.log-label
+              span.log-info-label Info:
               el-tag(type="warning") {{scope.row.vm.$vnode.tag}} error in {{scope.row.info}}
-            div
-              span Url:
+            div.log-label
+              span.log-url-label Url:
               el-tag(type="success") {{scope.row.url}}
         el-table-column(label="Stack")
           template(slot-scope="scope")
@@ -50,5 +50,11 @@ export default {
 .bug-action{
   width: 24px;height: 24px;display: inline-block; margin: 0px 20px; font-size: 14px;
   text-align: center;background-color: var(--orange);color: var(--colorWhite);border-radius: 2px;cursor: pointer;
+}
+.log-label{
+  margin-bottom: 8px;
+  & .log-msg-label{padding-right: 8px;}
+  & .log-info-label{padding-right: 10px;}
+  & .log-url-label{padding-right: 12px;}
 }
 </style>

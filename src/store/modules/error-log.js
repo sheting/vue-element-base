@@ -9,7 +9,7 @@ const errorLog = {
   },
   actions: {
     ADD_ERROR_LOGS({ commit }, log) {
-      commit('ADD_ERROR_LOG', log)
+      commit('ADD_ERROR_LOGS', log)
     }
   },
   getters: {
