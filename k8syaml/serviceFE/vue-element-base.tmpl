@@ -1,0 +1,62 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: fe-vue-element-base
+  namespace: salix-fe-service
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 2
+  template:
+    metadata:
+      labels:
+        salix.service: fe-vue-element-base
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: team
+                operator: In
+                values:
+                - salix
+      containers:
+      - name: fe-vue-element-base
+        image: {{(datasource "salix-config").Registry_url}}/salix/fe-vue-element-base:{{(datasource "salix-config").Image_tag}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: commitId
+          value: {{(datasource "salix-config").COMMIT_ID}}
+        volumeMounts:
+          - mountPath: "/home/logs"
+            name: data-volume 
+      imagePullSecrets:
+        - name: hub-secret
+      restartPolicy: Always
+      volumes:
+      - name: data-volume
+        hostPath:
+          path: /home/ubuntu/opt/salix/fe-vue-element-base/logs
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fe-vue-element-base
+  namespace: salix-fe-service
+spec:
+  type: NodePort
+  ports:
+  - name: fe-vue-element-base
+    port: 80
+    targetPort: 80
+    nodePort: 32011
+  selector:
+    salix.service: fe-vue-element-base

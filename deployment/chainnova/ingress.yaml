@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: host-ingress
+  namespace: chainnova
+  annotations:
+    https.port: "443"
+spec:
+  rules:
+  - host: testnews.demo.chainnova.xyz
+    http:
+      paths:
+      - path: /news/
+        backend:
+          serviceName: wordpress-app
+          servicePort: 80
+      - path: 
+        backend:
+          serviceName: chainnova-website
+          servicePort: 80
+  tls:
+   - secretName: demo
+     hosts:
+       - testnews.demo.chainnova.xyz
+#  backend:
+#    serviceName: chainnova-website
+#    servicePort: 80

@@ -1,18 +1,24 @@
 stages:
+#  - notify
   - build
   - deploy
-  - notify
 
 before_script:
   - which git
   - git submodule sync --recursive
   - git submodule update --init --recursive
   - ./deployment/ci/check_working_directory.sh
+
 after_script:
   - ./deployment/ci/check_working_directory.sh
 
+#cache:
+#  key: maven-repo-mirror
+#  paths:
+#    - maven-repo-mirror/
+
 # build
-vue-element-base-build:
+salix-build:
   stage: build
   script:
     - echo __CLUSTER_ENV_NAME=$VAR_CLUSTER_ENV_NAME
@@ -20,8 +26,8 @@ vue-element-base-build:
     - export GIT_TAG=$(git describe --tags)
     - export GIT_TAG=${GIT_TAG:-'testtag'}
     - export BRANCH=$CI_COMMIT_REF_NAME
-    - echo $BRANCH
     - export BRANCH=$(echo $BRANCH | tr "[A-Z]" "[a-z]" | tr "\/" "-" | tr "_" "-")
+    - echo "Branch: $BRANCH"
     - export GIT_COMMIT_ID=$(git rev-parse --short HEAD)
     - export ALWAYS_PULL=${ALWAYS_PULL:-'false'}
     - echo $GIT_TAG
@@ -34,20 +40,18 @@ vue-element-base-build:
     - schedules
 
 # deploy
-vue-element-base-deploy:
+salix-deploy:
   stage: deploy
   script:
     - export GIT_TAG=$(git describe --tags)
     - export GIT_TAG=${GIT_TAG:-'testtag'}
     - export BRANCH=$CI_COMMIT_REF_NAME
-    - export __CREATE_MODE=$VAR_CREATE_MODE
-    - echo $BRANCH
     - export BRANCH=$(echo $BRANCH | tr "[A-Z]" "[a-z]" | tr "\/" "-" | tr "_" "-")
+    - echo "Branch: $BRANCH"
     - export GIT_COMMIT_ID=$(git rev-parse --short HEAD)
     - echo $GIT_TAG
-    - echo $VAR_DOCKER_NETWORK
     - cd deployment/ci
-    - __CLUSTER_ENV_NAME=$VAR_CLUSTER_ENV_NAME __COMPONENT=$VAR_COMPONENT_NAME GIT_TAG=$GIT_TAG DOCKER_NETWORK=$VAR_DOCKER_NETWORK ./deploy.sh
+    - __CLUSTER_ENV_NAME=$VAR_CLUSTER_ENV_NAME __COMPONENT=$VAR_COMPONENT_NAME GIT_TAG=$GIT_TAG ./deploy.sh
     - cd - &> /dev/null
   tags:
     - deploy
