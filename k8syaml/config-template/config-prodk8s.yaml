@@ -11,7 +11,5 @@ Image_tag: ##IMAGE_TAG##
 
 
 #specific
-Salix_nfs_server: 9dc0d4bd4d-duc16.cn-zhangjiakou.nas.aliyuncs.com
-Salix_nfs_basepath: /spacefood
 FE_base_registry: ecr
 

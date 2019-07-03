@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: fe-vue-element-base
-  namespace: salix-fe-service
+  namespace: common-fe-service
 spec:
   replicas: 2
   strategy:
@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        salix.service: fe-vue-element-base
+        fe-common.service: fe-vue-element-base
     spec:
       affinity:
         nodeAffinity:
@@ -24,16 +24,16 @@ spec:
               - key: team
                 operator: In
                 values:
-                - salix
+                - fe-common
       containers:
       - name: fe-vue-element-base
-        image: {{(datasource "salix-config").Registry_url}}/salix/fe-vue-element-base:{{(datasource "salix-config").Image_tag}}
+        image: {{(datasource "fe-common-config").Registry_url}}/fe-common/fe-vue-element-base:{{(datasource "fe-common-config").Image_tag}}
         imagePullPolicy: Always
         ports:
         - containerPort: 80
         env:
         - name: commitId
-          value: {{(datasource "salix-config").COMMIT_ID}}
+          value: {{(datasource "fe-common-config").COMMIT_ID}}
         volumeMounts:
           - mountPath: "/home/logs"
             name: data-volume 
@@ -43,14 +43,14 @@ spec:
       volumes:
       - name: data-volume
         hostPath:
-          path: /home/ubuntu/opt/salix/fe-vue-element-base/logs
+          path: /home/ubuntu/opt/fe-common/fe-vue-element-base/logs
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: fe-vue-element-base
-  namespace: salix-fe-service
+  namespace: common-fe-service
 spec:
   type: NodePort
   ports:
@@ -59,4 +59,4 @@ spec:
     targetPort: 80
     nodePort: 32708
   selector:
-    salix.service: fe-vue-element-base
+    fe-common.service: fe-vue-element-base

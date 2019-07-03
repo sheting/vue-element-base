@@ -18,7 +18,7 @@ after_script:
 #    - maven-repo-mirror/
 
 # build
-salix-build:
+fe-common-build:
   stage: build
   script:
     - echo __CLUSTER_ENV_NAME=$VAR_CLUSTER_ENV_NAME
@@ -40,7 +40,7 @@ salix-build:
     - schedules
 
 # deploy
-salix-deploy:
+fe-common-deploy:
   stage: deploy
   script:
     - export GIT_TAG=$(git describe --tags)

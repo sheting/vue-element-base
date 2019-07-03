@@ -10,7 +10,5 @@ Target_registry: ecr
 Image_tag: ##IMAGE_TAG##
 
 #specific
-Salix_nfs_server: 172.31.33.203
-Salix_nfs_basepath: /home/ubuntu/opt/nfs/sharedir/test/cabinet-testk8s
 FE_base_registry: ecr
 
