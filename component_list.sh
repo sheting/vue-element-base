@@ -23,7 +23,7 @@ declare -a Port=(
 
 # port for docker run
 declare -a Docker_Port=(
-'31013'
+'31009'
 );
 
 #k8s para
