@@ -1,6 +1,0 @@
-[submodule "images"]
-	path = images
-	url = ../../fe/images.git
-[submodule "ci"]
-	path = ci
-	url = ../../fe/ci.git
