@@ -1,0 +1,50 @@
+version: "3.7"
+
+services:
+  # development
+  dev:
+    env_file:
+      - .env
+      - .env.development
+    build:
+      context: .
+      dockerfile: ./Docker/Dockerfile
+      target: dev
+      args:
+        DOCKER_REPO: $__BASE_DOCKER_REPO/$__BASE_DEV_REPOSITORY:$__BASE_TAG
+    image: $__DOCKER_PROJ_NAME.dev
+    ports:
+      - 9501:80
+    volumes:
+      - .:/code
+    container_name: $__DOCKER_PROJ_NAME
+    # command: ["-c", "nohup sh cmd/local-start.sh > dev.log 2>&1 && sh"]
+    privileged: true
+    stdin_open: true
+    tty: true
+  # build
+  build:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: ./Docker/Dockerfile
+      target: build
+      args:
+        DOCKER_REPO: $__BASE_DOCKER_REPO/$__BASE_BUILD_REPOSITORY:$__BASE_TAG
+    image: $__DOCKER_PROJ_NAME.build
+    volumes:
+       - .:/code
+    privileged: true
+    tty: true
+  # preview
+  service:
+    env_file:
+      - .env
+    build:
+      context: ./
+      dockerfile: ./Docker/Dockerfile
+      target: service
+      args:
+        DOCKER_REPO: $__BASE_DOCKER_REPO/$__BASE_SERVICE_REPOSITORY:$__SERVICE_BASE_TAG
+    image: $__TARGET_DOCKER_REPO$__SERVICE_TARGET_GROUP$__DOCKER_PROJ_NAME

@@ -1,0 +1,14 @@
+#global 
+#!!!Must can't be removed
+Registry_url: ##Registry_url##
+Registry_user: ##Registry_user##
+Registry_password: ##Registry_password##
+Hub_secret: ##Hub_secret_value##
+Registry_type: ##Registry_type##
+Image_tag_suffix: ##IMAGE_TAG_SUFFIX##
+Target_registry: ecr
+Image_tag: ##IMAGE_TAG##
+
+#specific
+FE_base_registry: ecr
+

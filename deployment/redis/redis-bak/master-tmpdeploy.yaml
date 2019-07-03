@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redis-master
+  namespace: redis-default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        redis-sentinel: "true"
+    spec:
+      containers:
+      - name: redis-master
+        image: 370307265965.dkr.ecr.cn-north-1.amazonaws.com.cn/chainnova/redis:4.0.6
+        imagePullPolicy: Always
+        env:
+          - name: MASTER
+            value: "true"
+          - name: PASSWORD
+            value: "123456"
+        ports:
+          - containerPort: 6379
+            name: redis-server
+        readinessProbe:
+          exec:
+            command: ['redis-cli','-a','123456', 'info', 'server']
+      - name: redis-sentinel
+        image: 370307265965.dkr.ecr.cn-north-1.amazonaws.com.cn/redis:4.0.6
+        imagePullPolicy: Always
+        env:
+          - name: SENTINEL
+            value: "true"
+          - name: PASSWORD
+            value: "123456"
+        ports:
+          - containerPort: 26379
+            name: redis-sentinel
+        readinessProbe:
+          exec:
+            command: ['redis-cli','-p','26379', 'info', 'server']

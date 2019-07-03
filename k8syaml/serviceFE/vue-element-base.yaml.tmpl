@@ -1,0 +1,62 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: fe-vue-element-base
+  namespace: common-fe-service
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 2
+  template:
+    metadata:
+      labels:
+        fe-common.service: fe-vue-element-base
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: team
+                operator: In
+                values:
+                - fe-common
+      containers:
+      - name: fe-vue-element-base
+        image: {{(datasource "fe-common-config").Registry_url}}/fe-common/fe-vue-element-base:{{(datasource "fe-common-config").Image_tag}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: commitId
+          value: {{(datasource "fe-common-config").COMMIT_ID}}
+        volumeMounts:
+          - mountPath: "/home/logs"
+            name: data-volume 
+      imagePullSecrets:
+        - name: hub-secret
+      restartPolicy: Always
+      volumes:
+      - name: data-volume
+        hostPath:
+          path: /home/ubuntu/opt/fe-common/fe-vue-element-base/logs
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fe-vue-element-base
+  namespace: common-fe-service
+spec:
+  type: NodePort
+  ports:
+  - name: fe-vue-element-base
+    port: 80
+    targetPort: 80
+    nodePort: 32708
+  selector:
+    fe-common.service: fe-vue-element-base

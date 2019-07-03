@@ -1,0 +1,28 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: redis-sentinel
+  namespace: redis-default
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: redis-sentinel
+        redis-sentinel: "true"
+    spec:
+      containers:
+        - name: redis-sentinel
+          image: 370307265965.dkr.ecr.cn-north-1.amazonaws.com.cn/chainnova/redis:4.0.6
+          imagePullPolicy: Always
+          env:
+            - name: SENTINEL
+              value: "true"
+            - name: PASSWORD
+              value: "123456"
+          ports:
+            - containerPort: 26379
+              name: redis-sentinel
+#      volumes:
+#        - name: redis-sentinel-storage
+#          emptyDir: {}
